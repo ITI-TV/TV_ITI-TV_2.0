@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 1920px;
+    height: 1080px;
+    background-color: darkblue;
+}
+
+#header{
+    width: 1920px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#main{
+    width: 1920px;
+    height: 880px;
+    position: absolute;
+    top: 100px;
+    left: 0;
+}
+
+#footer{
+    width: 1920px;
+    height: 100px;
+    position: absolute;
+    top: 980px;
+    left: 0;
+}
+
+#Titolo {
+    /*centro il box esattamente al centro*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*centro il testo*/
+    text-align: center;
+    /*altezza*/
+    height: 100px;
+    /*sfondo*/
+    background-color: #f1f1f1;
+    /*bordo*/
+    border: 1px solid #000;
+    /*font*/
+    font-family: 'Arial', sans-serif;
+    font-size: 30px;
+}

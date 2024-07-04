@@ -72,17 +72,14 @@ function getOrario(){
 }
 
 function loadComunicazioni(){
-    $('#header').load('HTML/Comunicazioni/header.html');
     $('#main').load('HTML/Comunicazioni/main.html');
 }
 
 function loadEventiGiornalieri(){
-    $('#header').load('HTML/Eventi%20Giornalieri/header.html');
     $('#main').load('HTML/Eventi%20Giornalieri/main.html');
 }
 
 function loadComponentiAggiuntivi(){
-    $('#header').load('HTML/Componenti%20Aggiuntivi/header.html');
     $('#main').load('HTML/Componenti%20Aggiuntivi/main.html');
 
 }
@@ -122,23 +119,26 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
     console.log(TempoDisponibilePerOgniPagina);
 
     let currentIndex = 0;
+    let TestoTitolo = document.getElementById("TestoTitolo");
 
     function processNext() {
         //faccio il calcolo del tempo rimanente in secondi con OraIni e OraFine
         let TempoRimanente = (oraFine.split(':')[0]*3600 + oraFine.split(':')[1]*60 - getOrario().split(':')[0]*3600 - getOrario().split(':')[1]*60) + 60;
         console.log('Tempo rimanente: ' + TempoRimanente);
-        $('#header').empty();
         $('#main').empty();
         //controllo che non sia passato il tempo totale disponibile
         if (TempoRimanente > 0){
             let pagina = programmazione[currentIndex];
             if (pagina === 'C') {
+                TestoTitolo.innerHTML = 'Comunicazioni';
                 loadComunicazioni();
                 console.log('Comunicazioni');
             } else if (pagina === 'E') {
+                TestoTitolo.innerHTML = 'Eventi Giornalieri';
                 loadEventiGiornalieri();
                 console.log('Eventi Giornalieri');
             } else if (pagina === 'A') {
+                TestoTitolo.innerHTML = 'Componenti Aggiuntivi';
                 loadComponentiAggiuntivi();
                 console.log('Componenti Aggiuntivi');
             }
