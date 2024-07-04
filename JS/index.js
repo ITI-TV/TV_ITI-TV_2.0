@@ -99,22 +99,52 @@ function shuffleArray(array) {
     return array;
 }
 
-function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAggiuntivi) {
+function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAggiuntivi, TempoTotaleDisponibile) {
     let programmazione = [];
 
     // Aggiungi i numeri con il conteggio specificato
     for (let i = 0; i < NumeroComunicazioni; i++) {
-        programmazione.push("Comunicazioni");
+        programmazione.push('C'); // Comunicazioni
     }
     for (let i = 0; i < NumeroEventiGiornalieri; i++) {
-        programmazione.push("EventiGiornalieri");
+        programmazione.push('E'); // Eventi Giornalieri
     }
     for (let i = 0; i < NumeroComponentiAggiuntivi; i++) {
-        programmazione.push("ComponentiAggiuntivi");
+        programmazione.push('A'); // Componenti Aggiuntivi
     }
 
     // Mescola l'array per distribuire equamente i numeri
     programmazione = shuffleArray(programmazione);
 
     console.log(programmazione);
+
+    let TempoDisponibilePerOgniPagina = TempoTotaleDisponibile / programmazione.length;
+    console.log(TempoDisponibilePerOgniPagina);
+
+    let currentIndex = 0;
+
+    function processNext() {
+        if (currentIndex < programmazione.length) {
+            let pagina = programmazione[currentIndex];
+            //ripulisco cache
+            $('#header').empty();
+            $('#main').empty();
+            if (pagina === 'C') {
+                loadComunicazioni();
+                console.log('Comunicazioni');
+            } else if (pagina === 'E') {
+                loadEventiGiornalieri();
+                console.log('Eventi Giornalieri');
+            } else if (pagina === 'A') {
+                loadComponentiAggiuntivi();
+                console.log('Componenti Aggiuntivi');
+            }
+            currentIndex++;
+            setTimeout(processNext, TempoDisponibilePerOgniPagina * 1000);
+        } else {
+            starter();
+        }
+    }
+
+    processNext();
 }
