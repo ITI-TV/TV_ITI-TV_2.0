@@ -124,11 +124,10 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
     let currentIndex = 0;
 
     function processNext() {
+        $('#header').empty();
+        $('#main').empty();
         if (currentIndex < programmazione.length) {
             let pagina = programmazione[currentIndex];
-            //ripulisco cache
-            $('#header').empty();
-            $('#main').empty();
             if (pagina === 'C') {
                 loadComunicazioni();
                 console.log('Comunicazioni');
