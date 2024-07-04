@@ -51,7 +51,7 @@ function starter() {
             console.log(NumeroEventiGiornalieri);
             console.log(NumeroComponentiAggiuntivi);
             console.log(TempoTotaleSecondi);
-            loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAggiuntivi, TempoTotaleSecondi);
+            loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAggiuntivi, TempoTotaleSecondi, oraInizio, oraFine);
         })
         .catch(error => {
             console.error('Errore nella richiesta:', error);
@@ -99,7 +99,7 @@ function shuffleArray(array) {
     return array;
 }
 
-function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAggiuntivi, TempoTotaleDisponibile) {
+function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAggiuntivi, TempoTotaleDisponibile, oraInizio, oraFine) {
     let programmazione = [];
 
     // Aggiungi i numeri con il conteggio specificato
@@ -124,9 +124,13 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
     let currentIndex = 0;
 
     function processNext() {
+        //faccio il calcolo del tempo rimanente in secondi con OraIni e OraFine
+        let TempoRimanente = (oraFine.split(':')[0]*3600 + oraFine.split(':')[1]*60 - getOrario().split(':')[0]*3600 - getOrario().split(':')[1]*60) + 60;
+        console.log('Tempo rimanente: ' + TempoRimanente);
         $('#header').empty();
         $('#main').empty();
-        if (currentIndex < programmazione.length) {
+        //controllo che non sia passato il tempo totale disponibile
+        if (TempoRimanente > 0){
             let pagina = programmazione[currentIndex];
             if (pagina === 'C') {
                 loadComunicazioni();
