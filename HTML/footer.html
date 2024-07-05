@@ -1,5 +1,7 @@
+<script src="JS/footer.js"></script>
 <div id="FooterBox">
     <div id="ScrollText">Qua dovrà scorrere il testo qua presente</div>
+    <script>startFooter()</script>
 </div>
 <style>
     #ScrollText {
@@ -16,7 +18,13 @@
         /*bordo*/
         border: 1px solid #000;
         /*font*/
-        font-family: 'Arial',sans-serif;
+        font-family: monospace;
         font-size: 30px;
+    }
+    #FooterBox {
+        /*posiziono il box in basso*/
+        position: fixed;
+        /*larghezza*/
+        width: fit-content;;
     }
 </style>

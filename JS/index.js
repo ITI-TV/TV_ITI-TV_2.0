@@ -7,7 +7,7 @@ function starter() {
             return response.json();
         })
         .then(programmazione => {
-            console.log(programmazione);
+            //console.log(programmazione);
             let orario = getOrario();
             //creo una scaletta con tutti gli orari presenti in programazione
             let scalettaInizi = [];
@@ -18,11 +18,11 @@ function starter() {
             for (let i = 0; i < programmazione.length; i++) {
                 scalettaFine.push(programmazione[i]['Ora Fine']);
             }
-            console.log(scalettaInizi);
-            console.log(scalettaFine);
+            //console.log(scalettaInizi);
+            //console.log(scalettaFine);
             //cerco l'indice dell'orario attuale
             let indice = 0;
-            console.log(orario);
+            //console.log(orario);
             let trovato = false;
             for (let i = 0; i < scalettaInizi.length && !trovato; i++) {
                 //controllo se l'orario attuale è compreso tra due orari della scaletta, anche i minuti
@@ -47,10 +47,10 @@ function starter() {
             let oraInizioSecondi = oraInizioSplit[0]*3600 + oraInizioSplit[1]*60;
             let oraFineSecondi = oraFineSplit[0]*3600 + oraFineSplit[1]*60;
             let TempoTotaleSecondi = oraFineSecondi - oraInizioSecondi;
-            console.log(NumeroComunicazioni);
-            console.log(NumeroEventiGiornalieri);
-            console.log(NumeroComponentiAggiuntivi);
-            console.log(TempoTotaleSecondi);
+            //console.log(NumeroComunicazioni);
+            //console.log(NumeroEventiGiornalieri);
+            //console.log(NumeroComponentiAggiuntivi);
+            //console.log(TempoTotaleSecondi);
             loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAggiuntivi, TempoTotaleSecondi, oraInizio, oraFine);
         })
         .catch(error => {
@@ -113,10 +113,10 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
     // Mescola l'array per distribuire equamente i numeri
     programmazione = shuffleArray(programmazione);
 
-    console.log(programmazione);
+    //console.log(programmazione);
 
     let TempoDisponibilePerOgniPagina = TempoTotaleDisponibile / programmazione.length;
-    console.log(TempoDisponibilePerOgniPagina);
+    //console.log(TempoDisponibilePerOgniPagina);
 
     let currentIndex = 0;
     let TestoTitolo = document.getElementById("TestoTitolo");
@@ -124,7 +124,7 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
     function processNext() {
         //faccio il calcolo del tempo rimanente in secondi con OraIni e OraFine
         let TempoRimanente = (oraFine.split(':')[0]*3600 + oraFine.split(':')[1]*60 - getOrario().split(':')[0]*3600 - getOrario().split(':')[1]*60) + 60;
-        console.log('Tempo rimanente: ' + TempoRimanente);
+        //console.log('Tempo rimanente: ' + TempoRimanente);
         $('#main').empty();
         //controllo che non sia passato il tempo totale disponibile
         if (TempoRimanente > 0){
@@ -132,15 +132,15 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
             if (pagina === 'C') {
                 TestoTitolo.innerHTML = 'Comunicazioni';
                 loadComunicazioni();
-                console.log('Comunicazioni');
+                //console.log('Comunicazioni');
             } else if (pagina === 'E') {
                 TestoTitolo.innerHTML = 'Eventi Giornalieri';
                 loadEventiGiornalieri();
-                console.log('Eventi Giornalieri');
+                //console.log('Eventi Giornalieri');
             } else if (pagina === 'A') {
                 TestoTitolo.innerHTML = 'Componenti Aggiuntivi';
                 loadComponentiAggiuntivi();
-                console.log('Componenti Aggiuntivi');
+                //console.log('Componenti Aggiuntivi');
             }
             currentIndex++;
             setTimeout(processNext, TempoDisponibilePerOgniPagina * 1000);
