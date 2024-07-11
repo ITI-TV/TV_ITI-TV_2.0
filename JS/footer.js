@@ -1,9 +1,13 @@
+const LARGHEZZA_CARATTERE = 17;
+const VELOCITA_SCORRIMENTO = 20;
+const POSIZIONE_INIZIALE = 1920;
+const PADDING_ADDITIVO = 20;
+
 function max(NumeroNews, NumeroEmergenze) {
     return NumeroNews > NumeroEmergenze ? NumeroNews : NumeroEmergenze;
 }
 
 function startFooter() {
-    console.log('startFooter');
     fetch('PHP/footer.php?action=getNews')
         .then(response => {
             if (!response.ok) {
@@ -20,8 +24,6 @@ function startFooter() {
                     return response.json();
                 })
                 .then(emergenze => {
-                    console.log(news);
-                    console.log(emergenze);
                     let NumeroNews = news.length;
                     let NumeroEmergenze = emergenze.length;
                     let contatoreNews = NumeroNews === 1 ? 0 : 1;
@@ -39,22 +41,14 @@ function startFooter() {
                         } else {
                             contatoreEmergenze = (contatoreEmergenze + 1) < NumeroEmergenze ? (contatoreEmergenze + 1) : 1;
                         }
-                        console.log(contatoreNews);
-                        console.log(contatoreEmergenze);
                     }
-                    console.log(StringaFooter);
                     let box = document.getElementById('ScrollText');
                     box.innerHTML = StringaFooter;
 
-                    // Calcolo dinamico della larghezza del testo in base alla lunghezza in caratteri
                     let numeroCaratteri = StringaFooter.length;
-                    let larghezzaCarattere = 16; // Larghezza approssimativa di un carattere in pixel
-                    let larghezzaTotale = numeroCaratteri * larghezzaCarattere;
+                    let larghezzaTotale = numeroCaratteri * LARGHEZZA_CARATTERE;
+                    box.style.width = (larghezzaTotale + PADDING_ADDITIVO) + "px";
 
-                    // Imposto dinamicamente la larghezza del box
-                    box.style.width = (larghezzaTotale + 20) + "px"; // Aggiungo 20px di margine aggiuntivo
-
-                    // Avvio l'animazione di scorrimento
                     startScrollingText();
                 })
                 .catch(error => {
@@ -69,46 +63,34 @@ function startFooter() {
 function startScrollingText() {
     let box = document.getElementById('ScrollText');
     let dimensione = box.offsetWidth;
-    console.log("Dimensione:", dimensione);
 
-    // Posiziono il box inizialmente fuori dallo schermo a destra
     box.style.position = "absolute";
-    box.style.left = "1920px";
+    box.style.left = POSIZIONE_INIZIALE + "px";
 
-    // Aggiungo un padding per evitare che il testo venga tagliato
-    box.style.width = (dimensione + 20) + "px";
+    box.style.width = (dimensione + PADDING_ADDITIVO) + "px";
 
-    // Calcolo il numero di caratteri nel testo
     let numeroCaratteri = box.innerText.length;
-    console.log("Numero di caratteri:", numeroCaratteri);
+    let tempo = numeroCaratteri / VELOCITA_SCORRIMENTO;
 
-    // Calcolo il tempo di scorrimento in base alla velocità di 2 caratteri per secondo
-    let tempo = numeroCaratteri / 20; // 2 caratteri al secondo
-    console.log("Tempo:", tempo);
+    box.style.transition = "none";
+    box.style.left = POSIZIONE_INIZIALE + "px";
 
-    // Imposto la transizione per l'animazione
-    box.style.transition = "none";  // Rimuovo la transizione per reimpostare correttamente
-    box.style.left = "1920px"; // Posiziono nuovamente l'elemento a destra
-
-    // Forzo il reflow dell'elemento per assicurarmi che la transizione venga applicata
     box.getBoundingClientRect();
 
-    // Reimposto la transizione
     box.style.transition = "left " + tempo + "s linear";
 
-    // Evento che si attiva quando la transizione finisce
     box.addEventListener('transitionend', handleTransitionEnd, { once: true });
 
-    // Posiziono il box fuori dallo schermo a sinistra
-    box.style.left = "-" + (dimensione + 20) + "px";
+    box.style.left = "-" + (dimensione + PADDING_ADDITIVO) + "px";
 }
 
 function handleTransitionEnd() {
     let box = document.getElementById('ScrollText');
-    box.style.transition = 'none';  // Rimuovo la transizione per resettare correttamente
-    box.style.left = '1920px';  // Posiziono l'elemento di nuovo a destra
-    box.getBoundingClientRect();  // Forzo il reflow
+    box.style.transition = 'none';
+    box.style.left = POSIZIONE_INIZIALE + 'px';
+    box.getBoundingClientRect();
 
-    // Chiamo startFooter per ottenere nuovi dati e iniziare nuovamente l'animazione
     startFooter();
 }
+
+startFooter();

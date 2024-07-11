@@ -1,86 +1,72 @@
 <?php
-function getNews()
-{
+function connectDatabase() {
     // Parametri di connessione al database
     $servername = "192.168.1.147";
     $username = "ititv";
     $password = "ititv";
     $dbname = "ititv";
 
-// Crea una connessione
+    // Crea una connessione
     $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Verifica la connessione
+    // Verifica la connessione
     if ($conn->connect_error) {
-        die("Connessione al database fallita: " . $conn->connect_error);
-    } else {
-        // Query per selezionare tutti i dati dalla tabella Programmazione
-        $sql = "SELECT * FROM Comunicazione WHERE tag = 'news'";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            // Array per contenere tutti i risultati
-            $rows = array();
-
-            // Itera su ogni riga di risultato e aggiungi al array
-            while ($row = $result->fetch_assoc()) {
-                $rows[] = $row;
-            }
-
-            // Restituisci l'intero array come JSON
-            header('Content-Type: application/json');
-            echo json_encode($rows);
-        } else {
-            echo "0 risultati";
-        }
+        die(json_encode(array("error" => "Connessione al database fallita: " . $conn->connect_error)));
     }
 
-// Chiudi la connessione
-    $conn->close();
+    return $conn;
 }
 
-function getEmergenze()
-{
-    // Parametri di connessione al database
-    $servername = "192.168.1.147";
-    $username = "ititv";
-    $password = "ititv";
-    $dbname = "ititv";
+function deleteOldEntries($conn, $tag) {
+    $sql = "DELETE FROM Comunicazione WHERE Data_fine < CURDATE() AND tag = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $tag);
+    $stmt->execute();
+    $stmt->close();
+}
 
-// Crea una connessione
-    $conn = new mysqli($servername, $username, $password, $dbname);
+function getEntries($conn, $tag) {
+    $sql = "SELECT * FROM Comunicazione WHERE tag = ? AND (Data_inizio <= CURDATE() OR Data_inizio IS NULL)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $tag);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-// Verifica la connessione
-    if ($conn->connect_error) {
-        die("Connessione al database fallita: " . $conn->connect_error);
-    } else {
-        // Query per selezionare tutti i dati dalla tabella Programmazione
-        $sql = "SELECT * FROM Comunicazione WHERE tag = 'emergenza'";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            // Array per contenere tutti i risultati
-            $rows = array();
-
-            // Itera su ogni riga di risultato e aggiungi al array
-            while ($row = $result->fetch_assoc()) {
-                $rows[] = $row;
-            }
-
-            // Restituisci l'intero array come JSON
-            header('Content-Type: application/json');
-            echo json_encode($rows);
-        } else {
-            echo "0 risultati";
-        }
+    $rows = array();
+    while ($row = $result->fetch_assoc()) {
+        $rows[] = $row;
     }
 
-// Chiudi la connessione
-    $conn->close();
+    $stmt->close();
+    return $rows;
 }
 
-if (isset($_GET['action']) && $_GET['action'] == 'getEmergenze') {
-    getEmergenze();
-} elseif (isset($_GET['action']) && $_GET['action'] == 'getNews') {
-    getNews();
+function getNews() {
+    $conn = connectDatabase();
+    deleteOldEntries($conn, 'news');
+    $rows = getEntries($conn, 'news');
+    $conn->close();
+    header('Content-Type: application/json');
+    echo json_encode($rows);
+}
+
+function getEmergenze() {
+    $conn = connectDatabase();
+    deleteOldEntries($conn, 'emergenza');
+    $rows = getEntries($conn, 'emergenza');
+    $conn->close();
+    header('Content-Type: application/json');
+    echo json_encode($rows);
+}
+
+if (isset($_GET['action'])) {
+    if ($_GET['action'] == 'getEmergenze') {
+        getEmergenze();
+    } elseif ($_GET['action'] == 'getNews') {
+        getNews();
+    } else {
+        echo json_encode(array("error" => "Azione non valida"));
+    }
+} else {
+    echo json_encode(array("error" => "Azione non specificata"));
 }
