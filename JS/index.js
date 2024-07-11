@@ -54,7 +54,7 @@ function getPeriodoFestivo() {
     if (
         (dataCorrente >= dataInizioNatale && dataCorrente <= dataFineNatale) // Periodo di Natale
     ) {
-        return 'Natalizio';
+        return 'Natalizia';
     } else if (
         (dataCorrente >= new Date(anno, mesePasqua, giornoPasqua - 5) && dataCorrente <= new Date(anno, mesePasqua, giornoPasqua + 6)) // Periodo di Pasqua: inizia 5 giorni prima della Pasqua
     ) {
