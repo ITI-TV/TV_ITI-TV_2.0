@@ -7,8 +7,7 @@ function startComponentiAggiuntivi(){
             return response.json();
         })
         .then(data => {
-            console.log(data);
-                load(data);
+            load(data);
         })
         .catch(error => {
             console.error('Errore nella richiesta:', error);

@@ -156,7 +156,7 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
             programmazione.push('C'); // Comunicazioni
         }
         for (let i = 0; i < NumeroEventiGiornalieri; i++) {
-            programmazione.push('E'); // Eventi Giornalieri
+            programmazione.push('E'); // Eventi_Giornalieri
         }
         for (let i = 0; i < NumeroComponentiAggiuntivi; i++) {
             programmazione.push('A'); // Componenti_Aggiuntivi
