@@ -65,7 +65,7 @@ function getPeriodoFestivo() {
 }
 
 function starter() {
-    fetch('PHP/index.php')
+    fetch('PHP/getters.php?action=getProgrammazione')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Errore HTTP: ' + response.status);
@@ -73,6 +73,7 @@ function starter() {
             return response.json();
         })
         .then(programmazione => {
+            console.log(programmazione);
             let orario = getOrario();
             //creo una scaletta con tutti gli orari presenti in programazione
             let scalettaInizi = [];
@@ -91,9 +92,6 @@ function starter() {
                 if (orario >= scalettaInizi[i] && orario <= scalettaFine[i]) {
                     indice = i;
                     trovato = true;
-                }
-                if (i === scalettaInizi.length - 1 && !trovato) {
-                    alert("Non c'è nessun programma in corso");
                 }
             }
             //in base all'indice trovato mi salvo, numero comunicazioni, numero eventi giornalieri, numero componenti aggiuntivi e tempo totale in secondi
@@ -140,31 +138,28 @@ function shuffleArray(array) {
 
 function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAggiuntivi, TempoTotaleDisponibile, oraInizio, oraFine, periodo) {
     let programmazione = [];
-    if(NumeroComponentiAggiuntivi==="0" && NumeroComunicazioni==="0" && NumeroEventiGiornalieri==="0"){
-        // nascondo tutti i div e imposto uno sfondo nel body nero
-        document.body.style.backgroundColor = "black";
-        document.getElementById("main").style.display = "none";
-        document.getElementById("footer").style.display = "none";
-        document.getElementById("header").style.display = "none";
-    }else {
-        document.body.style.backgroundColor = "darkblue";
-        document.getElementById("main").style.display = "block";
-        document.getElementById("footer").style.display = "block";
-        document.getElementById("header").style.display = "block";
-        // Aggiungi i numeri con il conteggio specificato
-        for (let i = 0; i < NumeroComunicazioni; i++) {
-            programmazione.push('C'); // Comunicazioni
-        }
-        for (let i = 0; i < NumeroEventiGiornalieri; i++) {
-            programmazione.push('E'); // Eventi_Giornalieri
-        }
-        for (let i = 0; i < NumeroComponentiAggiuntivi; i++) {
-            programmazione.push('A'); // Componenti_Aggiuntivi
-        }
+    console.log("Visualizzazione di componenti");
+    console.log("Numero Comunicazioni: " + NumeroComunicazioni);
+    console.log("Numero Eventi Giornalieri: " + NumeroEventiGiornalieri);
+    console.log("Numero Componenti Aggiuntivi: " + NumeroComponentiAggiuntivi);
+    document.body.style.backgroundColor = "darkblue";
+    document.getElementById("main").style.display = "block";
+    document.getElementById("footer").style.display = "block";
+    document.getElementById("header").style.display = "block";
+    // Aggiungi i numeri con il conteggio specificato
+    for (let i = 0; i < NumeroComunicazioni; i++) {
+        programmazione.push('C'); // Comunicazioni
     }
-
+    for (let i = 0; i < NumeroEventiGiornalieri; i++) {
+        programmazione.push('E'); // Eventi_Giornalieri
+    }
+    for (let i = 0; i < NumeroComponentiAggiuntivi; i++) {
+        programmazione.push('A'); // Componenti_Aggiuntivi
+    }
+    console.log(programmazione);
     // Mescola l'array per distribuire equamente i numeri
     programmazione = shuffleArray(programmazione);
+    console.log(programmazione);
 
     let TempoDisponibilePerOgniPagina = TempoTotaleDisponibile / programmazione.length;
 
@@ -176,7 +171,7 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
         let TempoRimanente = (oraFine.split(':')[0]*3600 + oraFine.split(':')[1]*60 - getOrario().split(':')[0]*3600 - getOrario().split(':')[1]*60) + 60;
         //controllo che non sia passato il tempo totale disponibile
         if (TempoRimanente > 0){
-            if(NumeroComponentiAggiuntivi==="0" && NumeroComunicazioni==="0" && NumeroEventiGiornalieri==="0"){
+            if(NumeroComponentiAggiuntivi==="0" && NumeroComunicazioni==="0" && NumeroEventiGiornalieri==="0" || NumeroComunicazioni===0 && NumeroEventiGiornalieri===0 && NumeroComponentiAggiuntivi===0){
                 // Mostra una schermata nera
                 $('#main').css('display', 'none');
                 $('#footer').css('display', 'none');

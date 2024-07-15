@@ -1,5 +1,5 @@
 function startComunicazioni(){
-    fetch('PHP/Comunicazioni/main.php')
+    fetch('PHP/getters.php?action=getComunicazioni')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Errore HTTP: ' + response.status);

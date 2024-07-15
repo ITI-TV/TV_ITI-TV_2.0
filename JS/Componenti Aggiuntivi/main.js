@@ -1,5 +1,5 @@
 function startComponentiAggiuntivi(){
-    fetch("PHP/Componenti_Aggiuntivi/main.php")
+    fetch("PHP/getters.php?action=getComponentiAggiuntivi")
         .then(response => {
             if (!response.ok) {
                 throw new Error('Errore HTTP: ' + response.status);

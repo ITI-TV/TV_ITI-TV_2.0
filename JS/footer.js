@@ -8,7 +8,7 @@ function max(NumeroNews, NumeroEmergenze) {
 }
 
 function startFooter() {
-    fetch('PHP/footer.php?action=getNews')
+    fetch('PHP/getters.php?action=getNews')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Errore HTTP: ' + response.status);
@@ -16,7 +16,7 @@ function startFooter() {
             return response.json();
         })
         .then(news => {
-            fetch('PHP/footer.php?action=getEmergenze')
+            fetch('PHP/getters.php?action=getEmergenze')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Errore HTTP: ' + response.status);
@@ -51,13 +51,8 @@ function startFooter() {
 
                     startScrollingText();
                 })
-                .catch(error => {
-                    console.error('Errore nella richiesta:', error);
-                });
+
         })
-        .catch(error => {
-            console.error('Errore nella richiesta:', error);
-        });
 }
 
 function startScrollingText() {

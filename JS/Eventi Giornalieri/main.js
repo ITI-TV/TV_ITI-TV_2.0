@@ -1,5 +1,5 @@
 function startEventiGiornalieri(){
-    fetch("PHP/Eventi_Giornalieri/main.php")
+    fetch("PHP/getters.php?action=getEventiGiornalieri")
         .then(response => {
             if (!response.ok) {
                 throw new Error('Errore HTTP: ' + response.status);
