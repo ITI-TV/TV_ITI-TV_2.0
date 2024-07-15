@@ -1,7 +1,10 @@
 <div id="boxEventiGiornalieri">
-    <div id="Immagine"></div>
-    <div id="TitoloEventoGiornaliero"></div>
-    <div id="Testo"></div>
+    <div id="boxImmagineEventiGiornalieri">
+        <img src="#" alt="Immagine" id="ImmagineEventiGiornalieri">
+    </div>
+    <div id="TitoloEventiGiornalieri"></div>
+    <div id="TestoEventiGiornalieri"></div>
+    <script src="/JS/Eventi%20Giornalieri/main.js">startEventiGiornalieri()</script>
 </div>
 
 <style>
@@ -13,7 +16,7 @@
         left: 0;
     }
 
-    #Immagine {
+    #boxImmagineEventiGiornalieri {
         width: 20%;
         height: 90%;
         border: 1px solid #000;
@@ -23,7 +26,7 @@
         left: 0;
     }
 
-    #TitoloEventoGiornaliero {
+    #TitoloEventiGiornalieri {
         width: 70%;
         height: 10%;
         border: 1px solid #000;
@@ -33,7 +36,7 @@
         left: 25%;
     }
 
-    #Testo {
+    #TestoEventiGiornalieri {
         width: 70%;
         height: 80%;
         border: 1px solid #000;
@@ -41,5 +44,17 @@
         position: absolute;
         top: 10%;
         left: 25%;
+    }
+
+    #ImmagineEventiGiornalieri{
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
     }
 </style>
