@@ -1,8 +1,11 @@
 <div id="boxComponentiAggiuntivi">
-    <div id="Immagine"></div>
-    <div id="TitoloComponentiAgiguntivi"></div>
-    <div id="Testo"></div>
-    <script src="/JS/Componenti Aggiuntivi/main.js"></script>
+    <div id="BoxImmagineComponentiAggiuntivi">
+        <img id="ImmagineComponentiAggiuntivi" src="#" alt="Immagine">
+    </div>
+    <div id="TitoloComponentiAggiuntivi"></div>
+    <div id="TestoComponentiAggiuntivi"></div>
+    <div id="ProfComponentiAggiuntivi"></div>
+    <script src="/JS/Componenti Aggiuntivi/main.js">startComponentiAggiuntivi()</script>
 </div>
 
 <style>
@@ -14,7 +17,7 @@
         left: 0;
     }
 
-    #Immagine {
+    #BoxImmagineComponentiAggiuntivi {
         width: 20%;
         height: 90%;
         border: 1px solid #000;
@@ -24,7 +27,19 @@
         left:80%;
     }
 
-    #TitoloComponentiAgiguntivi {
+    #ImmagineComponentiAggiuntivi {
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    #TitoloComponentiAggiuntivi {
         width: 70%;
         height: 10%;
         border: 1px solid #000;
@@ -34,13 +49,26 @@
         left: 5%;
     }
 
-    #Testo {
+    #TestoComponentiAggiuntivi {
         width: 70%;
-        height: 80%;
+        height: 75%;
         border: 1px solid #000;
         background-color: #f1f1f1;
         position: absolute;
         top: 10%;
         left: 5%;
+    }
+
+    #ProfComponentiAggiuntivi{
+        width: 70%;
+        height: 5%;
+        border-left: 1px solid #000;
+        border-right: 1px solid #000;
+        background-color: #f1f1f1;
+        position: absolute;
+        top: 84%;
+        left: 5%;
+        text-align: right;
+        padding: 10px;
     }
 </style>

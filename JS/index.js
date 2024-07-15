@@ -159,7 +159,7 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
             programmazione.push('E'); // Eventi Giornalieri
         }
         for (let i = 0; i < NumeroComponentiAggiuntivi; i++) {
-            programmazione.push('A'); // Componenti Aggiuntivi
+            programmazione.push('A'); // Componenti_Aggiuntivi
         }
     }
 
