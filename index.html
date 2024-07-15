@@ -9,13 +9,16 @@
     <script src="JS/index.js"></script>
 </head>
 <body>
-    <script>starter()</script>
     <div id="header">
         <div id="Titolo">
-            <h1 id="TestoTitolo">Componenti Aggiuntivi</h1>
+            <h1 id="TestoTitolo"></h1>
         </div>
     </div>
     <div id="main"></div>
     <div id="footer"></div>
+    <script>
+        $('#footer').load('HTML/footer.html');
+        starter();
+    </script>
 </body>
 </html>

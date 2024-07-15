@@ -14,10 +14,6 @@ function loadComponentiAggiuntivi(periodo) {
     $('#main').load(`HTML/${periodo}/Componenti%20Aggiuntivi/main.html`);
 }
 
-function loadFooter() {
-    $('#footer').load(`HTML/footer.html`);
-}
-
 // Funzione per determinare il periodo festivo corrente
 function getPeriodoFestivo() {
     let data = new Date();
@@ -100,7 +96,6 @@ function starter() {
                     alert("Non c'è nessun programma in corso");
                 }
             }
-            loadFooter();
             //in base all'indice trovato mi salvo, numero comunicazioni, numero eventi giornalieri, numero componenti aggiuntivi e tempo totale in secondi
             let NumeroComunicazioni = programmazione[indice]['Numero Comunicazioni'];
             let NumeroEventiGiornalieri = programmazione[indice]['Numero Eventi Giornalieri'];
@@ -145,16 +140,27 @@ function shuffleArray(array) {
 
 function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAggiuntivi, TempoTotaleDisponibile, oraInizio, oraFine, periodo) {
     let programmazione = [];
-
-    // Aggiungi i numeri con il conteggio specificato
-    for (let i = 0; i < NumeroComunicazioni; i++) {
-        programmazione.push('C'); // Comunicazioni
-    }
-    for (let i = 0; i < NumeroEventiGiornalieri; i++) {
-        programmazione.push('E'); // Eventi Giornalieri
-    }
-    for (let i = 0; i < NumeroComponentiAggiuntivi; i++) {
-        programmazione.push('A'); // Componenti Aggiuntivi
+    if(NumeroComponentiAggiuntivi==="0" && NumeroComunicazioni==="0" && NumeroEventiGiornalieri==="0"){
+        // nascondo tutti i div e imposto uno sfondo nel body nero
+        document.body.style.backgroundColor = "black";
+        document.getElementById("main").style.display = "none";
+        document.getElementById("footer").style.display = "none";
+        document.getElementById("header").style.display = "none";
+    }else {
+        document.body.style.backgroundColor = "darkblue";
+        document.getElementById("main").style.display = "block";
+        document.getElementById("footer").style.display = "block";
+        document.getElementById("header").style.display = "block";
+        // Aggiungi i numeri con il conteggio specificato
+        for (let i = 0; i < NumeroComunicazioni; i++) {
+            programmazione.push('C'); // Comunicazioni
+        }
+        for (let i = 0; i < NumeroEventiGiornalieri; i++) {
+            programmazione.push('E'); // Eventi Giornalieri
+        }
+        for (let i = 0; i < NumeroComponentiAggiuntivi; i++) {
+            programmazione.push('A'); // Componenti Aggiuntivi
+        }
     }
 
     // Mescola l'array per distribuire equamente i numeri
@@ -168,26 +174,38 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
     function processNext() {
         //faccio il calcolo del tempo rimanente in secondi con OraIni e OraFine
         let TempoRimanente = (oraFine.split(':')[0]*3600 + oraFine.split(':')[1]*60 - getOrario().split(':')[0]*3600 - getOrario().split(':')[1]*60) + 60;
-        $('#main').empty();
         //controllo che non sia passato il tempo totale disponibile
         if (TempoRimanente > 0){
-            let pagina = programmazione[currentIndex];
-            if (pagina === 'C') {
-                TestoTitolo.innerHTML = 'Comunicazioni';
-                loadComunicazioni(periodo);
-            } else if (pagina === 'E') {
-                TestoTitolo.innerHTML = 'Eventi Giornalieri';
-                loadEventiGiornalieri(periodo);
-            } else if (pagina === 'A') {
-                TestoTitolo.innerHTML = 'Componenti Aggiuntivi';
-                loadComponentiAggiuntivi(periodo);
+            if(NumeroComponentiAggiuntivi==="0" && NumeroComunicazioni==="0" && NumeroEventiGiornalieri==="0"){
+                // Mostra una schermata nera
+                $('#main').css('display', 'none');
+                $('#footer').css('display', 'none');
+                $('#header').css('display', 'none');
+                $('body').css('background-color', 'black');
+
+                setTimeout(() => {
+                    location.reload();
+                }, TempoRimanente * 1000);
+
+
+            }else {
+                let pagina = programmazione[currentIndex];
+                if (pagina === 'C') {
+                    TestoTitolo.innerHTML = 'Comunicazioni';
+                    loadComunicazioni(periodo);
+                } else if (pagina === 'E') {
+                    TestoTitolo.innerHTML = 'Eventi Giornalieri';
+                    loadEventiGiornalieri(periodo);
+                } else if (pagina === 'A') {
+                    TestoTitolo.innerHTML = 'Componenti Aggiuntivi';
+                    loadComponentiAggiuntivi(periodo);
+                }
+                currentIndex++;
+                setTimeout(processNext, TempoDisponibilePerOgniPagina * 1000);
             }
-            currentIndex++;
-            setTimeout(processNext, TempoDisponibilePerOgniPagina * 1000);
         } else {
             starter();
         }
     }
-
     processNext();
 }
