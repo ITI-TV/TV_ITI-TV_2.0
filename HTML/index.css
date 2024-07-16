@@ -1,7 +1,12 @@
+/* INDEX DI BASE */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+#main, #header, #footer, #offline-message{
+    overflow: hidden;
 }
 
 body{
@@ -36,19 +41,13 @@ body{
 }
 
 #Titolo {
-    /*centro il box esattamente al centro*/
     display: flex;
     justify-content: center;
     align-items: center;
-    /*centro il testo*/
     text-align: center;
-    /*altezza*/
     height: 100px;
-    /*sfondo*/
     background-color: #f1f1f1;
-    /*bordo*/
     border: 1px solid #000;
-    /*font*/
     font-family: 'Arial', sans-serif;
     font-size: 30px;
 }
