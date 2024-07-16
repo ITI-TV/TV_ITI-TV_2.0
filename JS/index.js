@@ -73,7 +73,7 @@ function starter() {
             return response.json();
         })
         .then(programmazione => {
-            console.log(programmazione);
+            (programmazione);
             let orario = getOrario();
             //creo una scaletta con tutti gli orari presenti in programazione
             let scalettaInizi = [];
@@ -138,10 +138,10 @@ function shuffleArray(array) {
 
 function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAggiuntivi, TempoTotaleDisponibile, oraInizio, oraFine, periodo) {
     let programmazione = [];
-    console.log("Visualizzazione di componenti");
-    console.log("Numero Comunicazioni: " + NumeroComunicazioni);
-    console.log("Numero Eventi Giornalieri: " + NumeroEventiGiornalieri);
-    console.log("Numero Componenti Aggiuntivi: " + NumeroComponentiAggiuntivi);
+    ("Visualizzazione di componenti");
+    ("Numero Comunicazioni: " + NumeroComunicazioni);
+    ("Numero Eventi Giornalieri: " + NumeroEventiGiornalieri);
+    ("Numero Componenti Aggiuntivi: " + NumeroComponentiAggiuntivi);
     document.body.style.backgroundColor = "darkblue";
     document.getElementById("main").style.display = "block";
     document.getElementById("footer").style.display = "block";
@@ -156,10 +156,10 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
     for (let i = 0; i < NumeroComponentiAggiuntivi; i++) {
         programmazione.push('A'); // Componenti_Aggiuntivi
     }
-    console.log(programmazione);
+    (programmazione);
     // Mescola l'array per distribuire equamente i numeri
     programmazione = shuffleArray(programmazione);
-    console.log(programmazione);
+    (programmazione);
 
     let TempoDisponibilePerOgniPagina = TempoTotaleDisponibile / programmazione.length;
 
