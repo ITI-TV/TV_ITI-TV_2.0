@@ -1,4 +1,5 @@
 function startComponentiAggiuntivi(){
+    checkServer();
     fetch("PHP/getters.php?action=getComponentiAggiuntivi")
         .then(response => {
             if (!response.ok) {

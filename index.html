@@ -7,62 +7,6 @@
     <link rel="icon" href="IMG/Immagini%20Sito/FaviconITITV.ico" type="image/x-icon">
     <script src="JS/jquery.js"></script>
     <script src="JS/index.js"></script>
-    <script>
-        // Variabili per il controllo dello stato del server
-        const serverUrl = 'http://localhost:63342/index.html'; // URL del server da controllare
-        const checkInterval = 5000; // Intervallo di controllo in millisecondi (5 secondi)
-        let isOffline = false;
-
-        function checkServer() {
-            fetch(serverUrl, { method: 'HEAD' })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Server non raggiungibile');
-                    }
-                    if (isOffline) {
-                        isOffline = false;
-                        document.getElementById('offline-message').style.display = 'none';
-                        location.reload();
-                    }
-                })
-                .catch(() => {
-                    if (!isOffline) {
-                        isOffline = true;
-                        document.getElementById('offline-message').style.display = 'block';
-                        document.getElementById('main').style.display = 'none';
-                        document.getElementById('footer').style.display = 'none';
-                        document.getElementById('header').style.display = 'none';
-                        const data = new Date();
-                        let giorno = data.getDate();
-                        let mese = data.getMonth() + 1;
-                        const anno = data.getFullYear();
-                        let ora = data.getHours();
-                        let minuti = data.getMinutes();
-
-                        if (giorno < 10) {
-                            giorno = '0' + giorno;
-                        }
-
-                        if (mese < 10) {
-                            mese = '0' + mese;
-                        }
-
-                        if (ora < 10) {
-                            ora = '0' + ora;
-                        }
-
-                        if (minuti < 10) {
-                            minuti = '0' + minuti;
-                        }
-
-                        document.getElementById('OraManutenzione').innerHTML = ora + ':' + minuti;
-                        document.getElementById('DataManutenzione').innerHTML = giorno + '/' + mese + '/' + anno;
-                    }
-                });
-        }
-
-        setInterval(checkServer, checkInterval);
-    </script>
     <style>
         /* MANUTENZIONE */
 
@@ -125,8 +69,8 @@
             font-weight: 800;
             line-height: normal;
             position: absolute;
-            top: 933px;
-            left: 800px;
+            top: 925px;
+            left: 990px;
         }
 
         #DataManutenzione{
@@ -141,8 +85,32 @@
             font-weight: 800;
             line-height: normal;
             position: absolute;
-            top: 992px;
-            left: 800px;
+            top: 986px;
+            left: 990px;
+        }
+
+        #parola1Manutenzione{
+            color: #FFF;
+            font-family: Outfit, sans-serif;
+            font-size: 55px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: normal;
+            position: absolute;
+            top: 931px;
+            left: 548px;
+        }
+
+        #parola2Manutenzione{
+            color: #FFF;
+            font-family: Outfit, sans-serif;
+            font-size: 55px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: normal;
+            position: absolute;
+            top: 995px;
+            left: 547px;
         }
 
     </style>
@@ -164,6 +132,8 @@
         <div id="boxDataOraManutenzione"></div>
         <div id="OraManutenzione"></div>
         <div id="DataManutenzione"></div>
+        <div id="parola1Manutenzione">Inizio</div>
+        <div id="parola2Manutenzione">Manutenzione</div>
     </div>
     <div id="header">
         <div id="Titolo">
@@ -173,6 +143,7 @@
     <div id="main"></div>
     <div id="footer"></div>
     <script>
+        checkServer();
         $('#footer').load('HTML/footer.html');
         starter();
     </script>

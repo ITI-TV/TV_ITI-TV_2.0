@@ -8,6 +8,7 @@ function max(NumeroNews, NumeroEmergenze) {
 }
 
 function startFooter() {
+    checkServer();
     fetch('PHP/getters.php?action=getNews')
         .then(response => {
             if (!response.ok) {

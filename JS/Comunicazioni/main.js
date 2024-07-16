@@ -1,4 +1,5 @@
 function startComunicazioni(){
+    checkServer();
     fetch('PHP/getters.php?action=getComunicazioni')
         .then(response => {
             if (!response.ok) {
@@ -7,7 +8,6 @@ function startComunicazioni(){
             return response.json();
         })
         .then(data => {
-            console.log(data);
             load(data);
         })
         .catch(error => {
@@ -16,7 +16,7 @@ function startComunicazioni(){
 }
 
 function load(data){
-    console.log (data.length);
+     (data.length);
     if(data.length<4){
         let i
         for( i=1; i<data.length; i++){
@@ -34,7 +34,6 @@ function load(data){
     }else{
         //elimino il primo elemento dell'array
         data.shift();
-        console.log(data);
         //generop 3 numeri casuali diversi da 1 fino all'ultimo indice dell'array
         let numeri = [];
         while(numeri.length<3){

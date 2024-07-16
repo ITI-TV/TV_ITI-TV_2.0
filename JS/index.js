@@ -2,15 +2,71 @@
 const PERIODO_NATALE_INIZIO = 8; // Inizio periodo di Natale (8 dicembre)
 const PERIODO_NATALE_FINE = 6; // Fine periodo di Natale (6 gennaio)
 
+// Variabili per il controllo dello stato del server
+const serverUrl = 'http://localhost:63342/index.html'; // URL del server da controllare
+let isOffline = false;
+
+function checkServer() {
+    //faccio un thread a parte per controllare se il server è online
+    fetch(serverUrl, { method: 'HEAD' })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Server non raggiungibile');
+            }
+            if (isOffline) {
+                isOffline = false;
+                document.getElementById('offline-message').style.display = 'none';
+                location.reload();
+            }
+        })
+        .catch(() => {
+            if (!isOffline) {
+                isOffline = true;
+                document.getElementById('offline-message').style.display = 'block';
+                document.getElementById('main').style.display = 'none';
+                document.getElementById('footer').style.display = 'none';
+                document.getElementById('header').style.display = 'none';
+                const data = new Date();
+                let giorno = data.getDate();
+                let mese = data.getMonth() + 1;
+                const anno = data.getFullYear();
+                let ora = data.getHours();
+                let minuti = data.getMinutes();
+
+                if (giorno < 10) {
+                    giorno = '0' + giorno;
+                }
+
+                if (mese < 10) {
+                    mese = '0' + mese;
+                }
+
+                if (ora < 10) {
+                    ora = '0' + ora;
+                }
+
+                if (minuti < 10) {
+                    minuti = '0' + minuti;
+                }
+
+                document.getElementById('OraManutenzione').innerHTML = ora + ':' + minuti;
+                document.getElementById('DataManutenzione').innerHTML = giorno + '/' + mese + '/' + anno;
+            }
+        });
+}
+
 function loadComunicazioni(periodo) {
+    checkServer();
     $('#main').load(`HTML/${periodo}/Comunicazioni/main.html`);
 }
 
 function loadEventiGiornalieri(periodo) {
+    checkServer();
     $('#main').load(`HTML/${periodo}/Eventi%20Giornalieri/main.html`);
 }
 
 function loadComponentiAggiuntivi(periodo) {
+    checkServer();
     $('#main').load(`HTML/${periodo}/Componenti%20Aggiuntivi/main.html`);
 }
 
@@ -65,6 +121,7 @@ function getPeriodoFestivo() {
 }
 
 function starter() {
+    checkServer();
     fetch('PHP/getters.php?action=getProgrammazione')
         .then(response => {
             if (!response.ok) {
@@ -179,6 +236,7 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
                 $('body').css('background-color', 'black');
 
                 setTimeout(() => {
+                    checkServer();
                     location.reload();
                 }, TempoRimanente * 1000);
 
@@ -186,12 +244,15 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
             }else {
                 let pagina = programmazione[currentIndex];
                 if (pagina === 'C') {
+                    checkServer()
                     TestoTitolo.innerHTML = 'Comunicazioni';
                     loadComunicazioni(periodo);
                 } else if (pagina === 'E') {
+                    checkServer()
                     TestoTitolo.innerHTML = 'Eventi Giornalieri';
                     loadEventiGiornalieri(periodo);
                 } else if (pagina === 'A') {
+                    checkServer()
                     TestoTitolo.innerHTML = 'Componenti Aggiuntivi';
                     loadComponentiAggiuntivi(periodo);
                 }
