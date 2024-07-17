@@ -3,7 +3,8 @@ const PERIODO_NATALE_INIZIO = 8; // Inizio periodo di Natale (8 dicembre)
 const PERIODO_NATALE_FINE = 6; // Fine periodo di Natale (6 gennaio)
 
 // Variabili per il controllo dello stato del server
-const serverUrl = 'http://localhost:63342/index.html'; // URL del server da controllare
+//prendo il link dinamicamente in base all'url presnete sulla barra del browser
+const serverUrl = window.location.origin + '/index.html';
 let isOffline = false;
 
 function checkServer() {
