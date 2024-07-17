@@ -20,6 +20,11 @@ function load(data){
     var numeroCasuale = Math.floor(Math.random() * data.length);
     //prendo il componente aggiuntivo
     var componenteAggiuntivo = data[numeroCasuale];
+    if (componenteAggiuntivo == null){
+        document.getElementById("TitoloComponentiAggiuntivi").innerHTML = "Nessun componente aggiuntivo";
+        document.getElementById("TestoComponentiAggiuntivi").innerHTML = "Nessun componente aggiuntivo";
+        return;
+    }
     document.getElementById("TitoloComponentiAggiuntivi").innerHTML = componenteAggiuntivo.Titolo;
     document.getElementById("TestoComponentiAggiuntivi").innerHTML = componenteAggiuntivo.Testo;
     document.getElementById("ImmagineComponentiAggiuntivi").src = componenteAggiuntivo.Immagine;

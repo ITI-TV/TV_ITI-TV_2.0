@@ -1,4 +1,5 @@
 function startEventiGiornalieri(){
+    checkServer();
     fetch("PHP/getters.php?action=getEventiGiornalieri")
         .then(response => {
             if (!response.ok) {
@@ -19,6 +20,11 @@ function load(data){
     var numeroCasuale = Math.floor(Math.random() * data.length);
     //prendo il componente aggiuntivo
     var eventoGiornaliero = data[numeroCasuale];
+    if (eventoGiornaliero == null){
+        document.getElementById("TitoloEventiGiornalieri").innerHTML = "Nessun evento giornaliero";
+        document.getElementById("TestoEventiGiornalieri").innerHTML = "Nessun evento giornaliero";
+        return;
+    }
     document.getElementById("TitoloEventiGiornalieri").innerHTML = eventoGiornaliero.Titolo;
     document.getElementById("TestoEventiGiornalieri").innerHTML = eventoGiornaliero.Testo;
     document.getElementById("ImmagineEventiGiornalieri").src = eventoGiornaliero.Immagine;

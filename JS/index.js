@@ -53,6 +53,7 @@ function checkServer() {
                 document.getElementById('OraManutenzione').innerHTML = ora + ':' + minuti;
                 document.getElementById('DataManutenzione').innerHTML = giorno + '/' + mese + '/' + anno;
             }
+            setTimeout(checkServer, 100);
         });
 }
 
