@@ -2,6 +2,14 @@
 const PERIODO_NATALE_INIZIO = 8; // Inizio periodo di Natale (8 dicembre)
 const PERIODO_NATALE_FINE = 6; // Fine periodo di Natale (6 gennaio)
 
+//Saluti e dichiarazione della versione della TV e crediti
+console.log('Benvenuto nella TV del progetto ITI-TV dell`IIS "N.Copernico A.Carpeggiani"');
+console.log('Versione b2.0.22');
+console.log('. Classe 5X Informatica 2024/25 (Project Manager: Gabriele Bovina e Samuele Marinelli)');
+console.log('. Classe 4X Informatica 2023/24 (Project Manager: Gabriele Bovina e Samuele Marinelli)');
+console.log('. Classe 3X Informatica 2022/23 (Project Manager: Gabriele Bovina e Samuele Marinelli)');
+console.log('. Classe 5X Informatica 2020/21 (Project Manager: Luca Corticelli e Diego Bonati)');
+
 // Variabili per il controllo dello stato del server
 //prendo il link dinamicamente in base all'url presnete sulla barra del browser
 const serverUrl = window.location.origin + '/index.html';
