@@ -21,14 +21,14 @@ function load(data){
     //prendo il componente aggiuntivo
     var componenteAggiuntivo = data[numeroCasuale];
     if (componenteAggiuntivo == null){
-        document.getElementById("TitoloComponentiAggiuntivi").innerHTML = "Nessun componente aggiuntivo";
-        document.getElementById("TestoComponentiAggiuntivi").innerHTML = "Nessun componente aggiuntivo";
+        document.getElementById("TitoloComponentiAggiuntivi").innerHTML = "Nessun componente aggiuntivo disponibile";
+        document.getElementById("TestoComponentiAggiuntivi").innerHTML = "Nessun componente aggiuntivo disponibile";
         return;
     }
     document.getElementById("TitoloComponentiAggiuntivi").innerHTML = componenteAggiuntivo.Titolo;
     document.getElementById("TestoComponentiAggiuntivi").innerHTML = componenteAggiuntivo.Testo;
     document.getElementById("ImmagineComponentiAggiuntivi").src = componenteAggiuntivo.Immagine;
-    document.getElementById("ProfComponentiAggiuntivi").innerHTML = "Prof / Prof.ssa " + componenteAggiuntivo.Prof;
+    document.getElementById("ProfComponentiAggiuntivi").innerHTML = componenteAggiuntivo.Prof;
 }
 
 startComponentiAggiuntivi();

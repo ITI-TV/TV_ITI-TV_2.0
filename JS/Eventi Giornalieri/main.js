@@ -21,8 +21,8 @@ function load(data){
     //prendo il componente aggiuntivo
     var eventoGiornaliero = data[numeroCasuale];
     if (eventoGiornaliero == null){
-        document.getElementById("TitoloEventiGiornalieri").innerHTML = "Nessun evento giornaliero";
-        document.getElementById("TestoEventiGiornalieri").innerHTML = "Nessun evento giornaliero";
+        document.getElementById("TitoloEventiGiornalieri").innerHTML = "Nessun evento giornaliero disponibile";
+        document.getElementById("TestoEventiGiornalieri").innerHTML = "Nessun evento giornaliero disponibile";
         return;
     }
     document.getElementById("TitoloEventiGiornalieri").innerHTML = eventoGiornaliero.Titolo;

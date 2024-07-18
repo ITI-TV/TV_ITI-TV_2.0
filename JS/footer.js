@@ -1,7 +1,8 @@
-const LARGHEZZA_CARATTERE = 17;
-const VELOCITA_SCORRIMENTO = 20;
+const LARGHEZZA_CARATTERE = 29;
+const VELOCITA_SCORRIMENTO = 5;
 const POSIZIONE_INIZIALE = 1920;
-const PADDING_ADDITIVO = 20;
+const PADDING_ADDITIVO = 0;
+const DimensioneBoxRosso = 326;
 
 function max(NumeroNews, NumeroEmergenze) {
     return NumeroNews > NumeroEmergenze ? NumeroNews : NumeroEmergenze;
@@ -51,6 +52,7 @@ function startFooter() {
                     box.style.width = (larghezzaTotale + PADDING_ADDITIVO) + "px";
 
                     startScrollingText();
+                    setOraData();
                 })
 
         })
@@ -77,7 +79,8 @@ function startScrollingText() {
 
     box.addEventListener('transitionend', handleTransitionEnd, { once: true });
 
-    box.style.left = "-" + (dimensione + PADDING_ADDITIVO) + "px";
+    let posizioneFinale = dimensione + PADDING_ADDITIVO - DimensioneBoxRosso
+    box.style.left = "-" + (posizioneFinale) + "px";
 }
 
 function handleTransitionEnd() {
@@ -87,6 +90,36 @@ function handleTransitionEnd() {
     box.getBoundingClientRect();
 
     startFooter();
+}
+
+function setOraData() {
+    let data = new Date();
+    let giorno = data.getDate();
+    let mese = data.getMonth() + 1;
+    let anno = data.getFullYear();
+    let ore = data.getHours();
+    let minuti = data.getMinutes();
+
+    if (minuti < 10) {
+        minuti = "0" + minuti;
+    }
+
+    if (ore < 10) {
+        ore = "0" + ore;
+    }
+
+    if (mese < 10) {
+        mese = "0" + mese;
+    }
+
+    if (giorno < 10) {
+        giorno = "0" + giorno;
+    }
+
+    let dataFormattata = ore + ":" + minuti + "<br>" + giorno + "/" + mese + "/" + anno;
+    let box = document.getElementById('OraData');
+    box.innerHTML = dataFormattata;
+    setTimeout(setOraData, 1000);
 }
 
 startFooter();

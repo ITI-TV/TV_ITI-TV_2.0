@@ -4,11 +4,13 @@ const PERIODO_NATALE_FINE = 6; // Fine periodo di Natale (6 gennaio)
 
 //Saluti e dichiarazione della versione della TV e crediti
 console.log('Benvenuto nella TV del progetto ITI-TV dell`IIS "N.Copernico A.Carpeggiani"');
-console.log('Versione b2.0.22');
+console.log('Versione b2.0.23');
+console.log('Crediti: ');
 console.log('. Classe 5X Informatica 2024/25 (Project Manager: Gabriele Bovina e Samuele Marinelli)');
 console.log('. Classe 4X Informatica 2023/24 (Project Manager: Gabriele Bovina e Samuele Marinelli)');
 console.log('. Classe 3X Informatica 2022/23 (Project Manager: Gabriele Bovina e Samuele Marinelli)');
 console.log('. Classe 5X Informatica 2020/21 (Project Manager: Luca Corticelli e Diego Bonati)');
+console.log('Ringraziamenti per il supporto e la collaborazione per gli eventi giornalieri: ');
 
 // Variabili per il controllo dello stato del server
 //prendo il link dinamicamente in base all'url presnete sulla barra del browser
@@ -182,14 +184,14 @@ function starter() {
 }
 
 
-function getOrario(){
+function getOrario() {
     let data = new Date();
     let ora = data.getHours();
     let minuti = data.getMinutes();
-    if(ora < 10){
+    if (ora < 10) {
         ora = '0' + ora;
     }
-    if(minuti < 10){
+    if (minuti < 10) {
         minuti = '0' + minuti;
     }
     return ora + ':' + minuti;
@@ -209,7 +211,7 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
     ("Numero Comunicazioni: " + NumeroComunicazioni);
     ("Numero Eventi Giornalieri: " + NumeroEventiGiornalieri);
     ("Numero Componenti Aggiuntivi: " + NumeroComponentiAggiuntivi);
-    document.body.style.backgroundColor = "darkblue";
+    document.body.style.backgroundColor = "#0E284B"
     document.getElementById("main").style.display = "block";
     document.getElementById("footer").style.display = "block";
     document.getElementById("header").style.display = "block";
@@ -235,10 +237,10 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
 
     function processNext() {
         //faccio il calcolo del tempo rimanente in secondi con OraIni e OraFine
-        let TempoRimanente = (oraFine.split(':')[0]*3600 + oraFine.split(':')[1]*60 - getOrario().split(':')[0]*3600 - getOrario().split(':')[1]*60) + 60;
+        let TempoRimanente = (oraFine.split(':')[0] * 3600 + oraFine.split(':')[1] * 60 - getOrario().split(':')[0] * 3600 - getOrario().split(':')[1] * 60) + 60;
         //controllo che non sia passato il tempo totale disponibile
-        if (TempoRimanente > 0){
-            if(NumeroComponentiAggiuntivi==="0" && NumeroComunicazioni==="0" && NumeroEventiGiornalieri==="0" || NumeroComunicazioni===0 && NumeroEventiGiornalieri===0 && NumeroComponentiAggiuntivi===0){
+        if (TempoRimanente > 0) {
+            if (NumeroComponentiAggiuntivi === "0" && NumeroComunicazioni === "0" && NumeroEventiGiornalieri === "0" || NumeroComunicazioni === 0 && NumeroEventiGiornalieri === 0 && NumeroComponentiAggiuntivi === 0) {
                 // Mostra una schermata nera
                 $('#main').css('display', 'none');
                 $('#footer').css('display', 'none');
@@ -251,19 +253,19 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
                 }, TempoRimanente * 1000);
 
 
-            }else {
+            } else {
                 let pagina = programmazione[currentIndex];
                 if (pagina === 'C') {
                     checkServer()
-                    TestoTitolo.innerHTML = 'Comunicazioni';
+                    TestoTitolo.innerHTML = 'COMUNICAZIONI GIORNALIERE';
                     loadComunicazioni(periodo);
                 } else if (pagina === 'E') {
                     checkServer()
-                    TestoTitolo.innerHTML = 'Eventi Giornalieri';
+                    TestoTitolo.innerHTML = 'RICORRENZA DEL GIORNO';
                     loadEventiGiornalieri(periodo);
                 } else if (pagina === 'A') {
                     checkServer()
-                    TestoTitolo.innerHTML = 'Componenti Aggiuntivi';
+                    TestoTitolo.innerHTML = 'COMPONENTI AGGIUNTIVI';
                     loadComponentiAggiuntivi(periodo);
                 }
                 currentIndex++;
