@@ -1,4 +1,5 @@
-function startComponentiAggiuntivi(){
+function startComponentiAggiuntivi() {
+    document.body.style.backgroundColor = "#00152D";
     checkServer();
     fetch("PHP/getters.php?action=getComponentiAggiuntivi")
         .then(response => {
@@ -15,14 +16,15 @@ function startComponentiAggiuntivi(){
         });
 }
 
-function load(data){
+function load(data) {
     //scielgo un numero a caso tra 0 e la dimensione dell'array
     var numeroCasuale = Math.floor(Math.random() * data.length);
     //prendo il componente aggiuntivo
     var componenteAggiuntivo = data[numeroCasuale];
-    if (componenteAggiuntivo == null){
+    if (componenteAggiuntivo == null) {
         document.getElementById("TitoloComponentiAggiuntivi").innerHTML = "Nessun componente aggiuntivo disponibile";
         document.getElementById("TestoComponentiAggiuntivi").innerHTML = "Nessun componente aggiuntivo disponibile";
+        document.getElementById("ProfComponentiAggiuntivi").innerHTML = "ITI-TV";
         return;
     }
     document.getElementById("TitoloComponentiAggiuntivi").innerHTML = componenteAggiuntivo.Titolo;

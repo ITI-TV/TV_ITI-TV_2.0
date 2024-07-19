@@ -402,8 +402,202 @@ body {
 
 /* EVENTI GIORNALIERI */
 
+#boxEventiGiornalieri {
+    width: 1798px;
+    height: 660px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 2.5px solid #E09819;
+    background: #0E284B;
+    position: absolute;
+    top: 59px;
+    left: 60px;
+}
+
+#boxHeaderEventiGiornalieri {
+    width: 1798px;
+    height: 90px;
+    flex-shrink: 0;
+    background-color: #004996;
+    position: absolute;
+    top: -2.5px;
+    left: -2.5px;
+    border-radius: 15px 15px 0 0;
+    border: 2.5px solid #888A4D;
+}
+
+#giornoAttualeEventiGiornalieri {
+    width: 522px;
+    height: 60px;
+    color: #FFF;
+    text-align: center;
+    font-family: 'OutFit', sans-serif;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    top: 17px;
+    left: 28px;
+}
+
+#TitoloEventiGiornalieri {
+    width: 1180px;
+    height: 60px;
+    color: #FFF;
+    position: absolute;
+    top: 17px;
+    left: 608px;
+    text-align: center;
+    font-family: 'OutFit', sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+}
+
+#boxImmagineEventiGiornalieri {
+    width: 898px;
+    height: 496px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 15px 15px 0;
+    border: 1px solid #E09819;
+    background: #004083;
+    position: absolute;
+    top: 123px;
+    left: 0;
+}
+
+#ImmagineEventiGiornalieri {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+}
+
+#TestoEventiGiornalieri {
+    display: flex;
+    width: 836px;
+    height: 520px;
+    flex-direction: column;
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: justify;
+    font-family: 'OutFit', sans-serif;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    position: absolute;
+    top: 110px;
+    left: 942px;
+}
+
 /* COMPONENTI AGGIUNTIVI */
 
+#boxComponentiAggiuntivi {
+    width: 1798px;
+    height: 660px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 2.5px solid #E09819;
+    background: #0E284B;
+    position: absolute;
+    top: 59px;
+    left: 60px;
+}
+
+#boxHeaderComponentiAggiuntivi {
+    width: 1798px;
+    height: 90px;
+    flex-shrink: 0;
+    background-color: #004996;
+    position: absolute;
+    top: -2.5px;
+    left: -2.5px;
+    border-radius: 15px 15px 0 0;
+    border: 2.5px solid #888A4D;
+}
+
+#TitoloComponentiAggiuntivi {
+    width: 1700px;
+    height: 60px;
+    color: #FFF;
+    position: absolute;
+    top: 17px;
+    left: 49px;
+    text-align: center;
+    font-family: 'OutFit', sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+}
+
+#boxImmagineComponentiAggiuntivi {
+    width: 708px;
+    height: 496px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px 0 0 15px;
+    border: 1px solid #E09819;
+    background: #004083;
+    position: absolute;
+    top: 110px;
+    left: 1087px;
+}
+
+#ImmagineComponentiAggiuntivi {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+}
+
+#TestoComponentiAggiuntivi {
+    display: flex;
+    width: 1036px;
+    height: 496px;
+    flex-direction: column;
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: justify;
+    font-family: 'OutFit', sans-serif;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    position: absolute;
+    top: 110px;
+    left: 20px;
+}
+
+#boxProfComponentiAggiuntivi {
+    width: 100%;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 0 0 15px 15px;
+    border-top: 2.5px solid #E09819;
+    background: #004996;
+    position: absolute;
+    top: 626px;
+}
+
+#ProfComponentiAggiuntivi {
+    color: #FFF;
+    text-align: right;
+    font-family: 'OutFit', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-right: 20px;
+}
 
 /* --GRAFICA NATALIZIA-- */
 /* HEADER */

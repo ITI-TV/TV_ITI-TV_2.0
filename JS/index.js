@@ -211,7 +211,6 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
     ("Numero Comunicazioni: " + NumeroComunicazioni);
     ("Numero Eventi Giornalieri: " + NumeroEventiGiornalieri);
     ("Numero Componenti Aggiuntivi: " + NumeroComponentiAggiuntivi);
-    document.body.style.backgroundColor = "#0E284B"
     document.getElementById("main").style.display = "block";
     document.getElementById("footer").style.display = "block";
     document.getElementById("header").style.display = "block";
