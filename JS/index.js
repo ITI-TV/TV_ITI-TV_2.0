@@ -4,7 +4,7 @@ const PERIODO_NATALE_FINE = 6; // Fine periodo di Natale (6 gennaio)
 
 //Saluti e dichiarazione della versione della TV e crediti
 console.log('Benvenuto nella TV del progetto ITI-TV dell`IIS "N.Copernico A.Carpeggiani"');
-console.log('Versione b2.0.25');
+console.log('Versione b2.0.26');
 console.log('Crediti: ');
 console.log('. Classe 5X Informatica 2024/25 (Project Manager: Gabriele Bovina e Samuele Marinelli)');
 console.log('. Classe 4X Informatica 2023/24 (Project Manager: Gabriele Bovina e Samuele Marinelli)');
@@ -132,6 +132,103 @@ function getPeriodoFestivo() {
     }
 }
 
+function setHeaderNat() {
+    document.getElementById('boxHeader').style.backgroundColor = '#F40000';
+    //creo un div
+    let LineaDivisoreHeaderMain = document.createElement('div');
+    //gli do un id
+    LineaDivisoreHeaderMain.id = 'LineaDivisoreHeaderMainHeaderNat';
+    //gli do una posizione absolute e un top 191px
+    LineaDivisoreHeaderMain.style.position = 'absolute';
+    LineaDivisoreHeaderMain.style.top = '160px';
+    //gli do un colore 8D53F7
+    LineaDivisoreHeaderMain.style.backgroundColor = '#8D53F7';
+    //gli do una larghezza 1920px e un'altezza 5px
+    LineaDivisoreHeaderMain.style.width = '1920px';
+    LineaDivisoreHeaderMain.style.height = '5px';
+    //attacho il div a boxHeader
+    document.getElementById('boxHeader').appendChild(LineaDivisoreHeaderMain);
+    //rimuovo logoITI
+    document.getElementById('logoITI').style.display = 'none';
+    document.getElementById('logoITITV').style.display = 'block';
+    //sostiusco l'img LogoITITV con una nuova immagine
+    document.getElementById('logoITITV').src = '/IMG/Immagini Sito/Natale/LogoITITVNat.png';
+    //sposto TestoTitolo a lefdt 44px
+    document.getElementById('TestoTitolo').style.left = '44px';
+    //imposto font famili 'Recursive', sans-serif
+    document.getElementById('TestoTitolo').style.fontFamily = 'Recursive', 'sans-serif';
+    //creo una img
+    let IMGStellaCadente = document.createElement('img');
+    //gli do l'src dell'immagine
+    IMGStellaCadente.src = '/IMG/Immagini Sito/Natale/Stellacadente.png';
+    //gli do un top di 70px e un left di 1386px position absolute
+    IMGStellaCadente.style.position = 'absolute';
+    IMGStellaCadente.style.top = '10px';
+    IMGStellaCadente.style.left = '1386px';
+    //attcaho l'img a boxHeader
+    document.getElementById('boxHeader').appendChild(IMGStellaCadente);
+}
+
+function setFooterNat() {
+    document.getElementById('footer').style.backgroundColor = '#F40000';
+    //creo una immagine
+    let IMGBabboNatale = document.createElement('img');
+    //gli do l'src dell'immagine
+    IMGBabboNatale.src = '/IMG/Immagini Sito/Natale/BabboNalate.png';
+    //gli do un top di 0px e un left di 0px position absolute
+    IMGBabboNatale.style.position = 'absolute';
+    IMGBabboNatale.style.top = '0px';
+    IMGBabboNatale.style.left = '0px';
+    //lo attacco a boxOrarioData
+    document.getElementById('boxOrarioData').appendChild(IMGBabboNatale);
+    //imposto a boxOrariodata un background color #FFF
+    document.getElementById('boxOrarioData').style.backgroundColor = '#FFF';
+    //A OrarioData color F90E0E
+    document.getElementById('OraData').style.color = '#F90E0E';
+    //imposto font Inter, sans-serif
+    document.getElementById('OraData').style.fontFamily = `Inter`, 'sans-serif';
+    //gli do un z-index 1
+    document.getElementById('OraData').style.zIndex = '1';
+    //rimpicciolisco il font-size a 20px
+    document.getElementById('OraData').style.fontSize = '40px';
+    //saposto a sinistra di 20px
+    document.getElementById('OraData').style.left = '20px';
+    //creo un div di nome LineaDivisoreFooterMainFooterNat
+    let LineaDivisoreFooterMainFooterNat = document.createElement('div');
+    //gli do un altezza di 5xp, una lunghezza di 1920px, un background color #8D53F7 e un top di 0px
+    LineaDivisoreFooterMainFooterNat.style.height = '5px';
+    LineaDivisoreFooterMainFooterNat.style.width = '1920px';
+    LineaDivisoreFooterMainFooterNat.style.backgroundColor = '#8D53F7';
+    LineaDivisoreFooterMainFooterNat.style.top = '0px';
+    //gli do una posizione absolute
+    LineaDivisoreFooterMainFooterNat.style.position = 'absolute';
+    //attacco il div a footer
+    document.getElementById('footer').appendChild(LineaDivisoreFooterMainFooterNat);
+    //creo un div di nome LineaDivisoreFooterOrarioFooterNat
+    let LineaDivisoreFooterOrarioFooterNat = document.createElement('div');
+    //gli do un altezza di 158px lunchezza 23px background color #C5A643 e un top di 0px e unm left di 357px, position absolute
+    LineaDivisoreFooterOrarioFooterNat.style.height = '158px';
+    LineaDivisoreFooterOrarioFooterNat.style.width = '23px';
+    LineaDivisoreFooterOrarioFooterNat.style.backgroundColor = '#C5A643';
+    LineaDivisoreFooterOrarioFooterNat.style.top = '0px';
+    LineaDivisoreFooterOrarioFooterNat.style.left = '325px';
+    LineaDivisoreFooterOrarioFooterNat.style.position = 'absolute';
+    //attacco il div a footer
+    document.getElementById('footer').appendChild(LineaDivisoreFooterOrarioFooterNat);
+}
+
+function setHeaderPasqua() {
+}
+
+function setFooterPasqua() {
+}
+
+function setHeaderHalloween() {
+}
+
+function setFooterHalloween() {
+}
+
 function starter() {
     checkServer();
     fetch('PHP/getters.php?action=getProgrammazione')
@@ -238,7 +335,7 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
     function processNext() {
         //faccio il calcolo del tempo rimanente in secondi con OraIni e OraFine
         let TempoRimanente = (oraFine.split(':')[0] * 3600 + oraFine.split(':')[1] * 60 - getOrario().split(':')[0] * 3600 - getOrario().split(':')[1] * 60) + 60;
-        if (oraFine.split(':')[0]*3600 + oraFine.split(':')[1]*60 < getOrario().split(':')[0]*3600 + getOrario().split(':')[1]*60){
+        if (oraFine.split(':')[0] * 3600 + oraFine.split(':')[1] * 60 < getOrario().split(':')[0] * 3600 + getOrario().split(':')[1] * 60) {
             TempoRimanente += 86400;
         }
         //controllo che non sia passato il tempo totale disponibile
@@ -257,6 +354,16 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
 
 
             } else {
+                if (periodo === 'Natalizia') {
+                    setHeaderNat();
+                    setFooterNat();
+                } else if (periodo === 'Pasqua') {
+                    setHeaderPasqua();
+                    setFooterPasqua();
+                } else if (periodo === 'Halloween') {
+                    setHeaderHalloween();
+                    setFooterHalloween();
+                }
                 let pagina = programmazione[currentIndex];
                 if (pagina === 'C') {
                     checkServer()

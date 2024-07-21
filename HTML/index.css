@@ -10,6 +10,21 @@
     src: url(/Fonts/OutFit/Outfit-VariableFont_wght.ttf) format("truetype");
 }
 
+@font-face {
+    font-family: Righteous;
+    src: url(/Fonts/Righteous/Righteous-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: Recursive;
+    src: url(/Fonts/Recursive/Recursive-VariableFont_CASL,CRSV,MONO,slnt,wght.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: Inter;
+    src: url(/Fonts/Inter/Inter-VariableFont_slnt,wght.ttf) format("truetype");
+}
+
 /* GRAFICA DI BASE */
 * {
     margin: 0;
@@ -605,6 +620,177 @@ body {
 /* FOOTER */
 
 /* COMUNICAZIONI */
+
+#Comunicazione1Nat {
+    width: 600px;
+    height: 675px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 2.5px solid #FFF;
+    background: #B20B0B;
+    position: absolute;
+    top: 31px;
+    left: 24px;
+}
+
+#Comunicazione2Nat {
+    width: 600px;
+    height: 675px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 2.5px solid #FFF;
+    background: #B20B0B;
+    position: absolute;
+    top: 31px;
+    left: 660px;
+}
+
+#Comunicazione3Nat {
+    width: 600px;
+    height: 675px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 2.5px solid #FFF;
+    background: #B20B0B;
+    position: absolute;
+    top: 31px;
+    left: 1295px;
+}
+
+#numeroComunicazione1Nat,
+#numeroComunicazione2Nat,
+#numeroComunicazione3Nat {
+    width: 156px;
+    height: 132px;
+    position: absolute;
+    top: 0;
+    left: 2px;
+    color: #FFF;
+    text-align: center;
+    font-family: 'Righteous', sans-serif;
+    font-size: 55px;
+    font-style: normal;
+    font-weight: 735;
+    line-height: normal;
+    /*metto il testo al centro sia verticale che orizzontale*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#divisoreComunicazione1Nat,
+#divisoreComunicazione2Nat,
+#divisoreComunicazione3Nat {
+    width: 4px;
+    height: 132px;
+    flex-shrink: 0;
+    background: #FFF;
+    position: absolute;
+    top: 0;
+    left: 154px;
+}
+
+#boxAltoComunicazione1Nat,
+#boxAltoComunicazione2Nat,
+#boxAltoComunicazione3Nat {
+    width: 596px;
+    height: 132px;
+    flex-shrink: 0;
+    border-bottom: 5px solid #0E284B;
+    border-radius: 15px 15px 0 0;
+    background: #1F403A;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+#testoComunicazione1Nat,
+#testoComunicazione2Nat,
+#testoComunicazione3Nat {
+    text-align: justify;
+    width: 560px;
+    color: #FFF;
+    font-family: 'Righteous', sans-serif;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 400;
+    height: 440px;
+    position: absolute;
+    top: 150px;
+    left: 20px;
+}
+
+#titoloComunicazione1Nat,
+#titoloComunicazione2Nat,
+#titoloComunicazione3Nat {
+    display: flex;
+    width: 440px;
+    height: 132px;
+    flex-direction: column;
+    flex-shrink: 0;
+    justify-content: center;
+    color: #FFF;
+    text-align: center;
+    font-family: 'Righteous', sans-serif;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    left: 157px;
+    z-index: 1;
+    align-items: center;
+}
+
+#boxProfessoreComunicazione1Nat,
+#boxProfessoreComunicazione2Nat,
+#boxProfessoreComunicazione3Nat {
+    width: 596px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 0 0 15px 15px;
+    background: #1F403A;
+    border-top: 5px solid #FFF;
+    position: absolute;
+    top: 630px;
+    left: 0;
+}
+
+#professoreComunicazione1Nat,
+#professoreComunicazione2Nat,
+#professoreComunicazione3Nat {
+    color: #FFF;
+    text-align: left;
+    font-family: 'Righteous', sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    line-height: normal;
+    position: absolute;
+    left: 28px;
+}
+
+#ImmagineComunicazione1Nat {
+    position: absolute;
+    left: 530px;
+    top: -70px;
+    z-index: 1;
+}
+
+#ImmagineComunicazione2Nat {
+    position: absolute;
+    left: 470px;
+    top: -100px;
+    z-index: 1;
+}
+
+#ImmagineComunicazione3Nat {
+    position: absolute;
+    left: 480px;
+    top: -70px;
+    z-index: 1;
+}
 
 /* EVENTI GIORNALIERI */
 
