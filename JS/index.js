@@ -4,7 +4,7 @@ const PERIODO_NATALE_FINE = 6; // Fine periodo di Natale (6 gennaio)
 
 //Saluti e dichiarazione della versione della TV e crediti
 console.log('Benvenuto nella TV del progetto ITI-TV dell`IIS "N.Copernico A.Carpeggiani"');
-console.log('Versione b2.0.23');
+console.log('Versione b2.0.25');
 console.log('Crediti: ');
 console.log('. Classe 5X Informatica 2024/25 (Project Manager: Gabriele Bovina e Samuele Marinelli)');
 console.log('. Classe 4X Informatica 2023/24 (Project Manager: Gabriele Bovina e Samuele Marinelli)');
@@ -124,7 +124,7 @@ function getPeriodoFestivo() {
     ) {
         return 'Pasqua';
     } else if (
-        (dataCorrente >= new Date(anno, 9, 1) && dataCorrente <= new Date(anno, 10, 2)) // Periodo di Halloween: dall'1 ottobre al 2 novembre
+        (dataCorrente >= new Date(anno, 9, 20) && dataCorrente <= new Date(anno, 10, 2)) // Periodo di Halloween: dal 20 ottobre al 2 novembre
     ) {
         return 'Halloween';
     } else {
@@ -174,6 +174,9 @@ function starter() {
             let oraFineSplit = oraFine.split(':');
             let oraInizioSecondi = oraInizioSplit[0] * 3600 + oraInizioSplit[1] * 60;
             let oraFineSecondi = oraFineSplit[0] * 3600 + oraFineSplit[1] * 60;
+            if (oraFineSecondi < oraInizioSecondi) {
+                oraFineSecondi += 86400;
+            }
             let TempoTotaleSecondi = oraFineSecondi - oraInizioSecondi;
             let periodo = getPeriodoFestivo();
             loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAggiuntivi, TempoTotaleSecondi, oraInizio, oraFine, periodo);
@@ -224,10 +227,8 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
     for (let i = 0; i < NumeroComponentiAggiuntivi; i++) {
         programmazione.push('A'); // Componenti_Aggiuntivi
     }
-    (programmazione);
     // Mescola l'array per distribuire equamente i numeri
     programmazione = shuffleArray(programmazione);
-    (programmazione);
 
     let TempoDisponibilePerOgniPagina = TempoTotaleDisponibile / programmazione.length;
 
@@ -237,6 +238,9 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
     function processNext() {
         //faccio il calcolo del tempo rimanente in secondi con OraIni e OraFine
         let TempoRimanente = (oraFine.split(':')[0] * 3600 + oraFine.split(':')[1] * 60 - getOrario().split(':')[0] * 3600 - getOrario().split(':')[1] * 60) + 60;
+        if (oraFine.split(':')[0]*3600 + oraFine.split(':')[1]*60 < getOrario().split(':')[0]*3600 + getOrario().split(':')[1]*60){
+            TempoRimanente += 86400;
+        }
         //controllo che non sia passato il tempo totale disponibile
         if (TempoRimanente > 0) {
             if (NumeroComponentiAggiuntivi === "0" && NumeroComunicazioni === "0" && NumeroEventiGiornalieri === "0" || NumeroComunicazioni === 0 && NumeroEventiGiornalieri === 0 && NumeroComponentiAggiuntivi === 0) {
