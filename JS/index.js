@@ -1,6 +1,6 @@
 // Costanti configurabili
 const PERIODO_NATALE_INIZIO = 8; // Inizio periodo di Natale (8 dicembre)
-const PERIODO_NATALE_FINE = 6; // Fine periodo di Natale (6 gennaio)
+const PERIODO_NATALE_FINE = 8; // Fine periodo di Natale (8 gennaio)
 
 //Saluti e dichiarazione della versione della TV e crediti
 console.log('Benvenuto nella TV del progetto ITI-TV dell`IIS "N.Copernico A.Carpeggiani"');
@@ -14,12 +14,12 @@ console.log('Ringraziamenti per il supporto e la collaborazione per gli eventi g
 
 // Variabili per il controllo dello stato del server
 //prendo il link dinamicamente in base all'url presnete sulla barra del browser
-const serverUrl = window.location.origin + '/index.html';
+const serverUrl = window.location.href + "/index.html" + '?cache_buster=' + new Date().getTime();
 let isOffline = false;
 
 function checkServer() {
     //faccio un thread a parte per controllare se il server è online
-    fetch(serverUrl, { method: 'HEAD' })
+    fetch(serverUrl, { cache: 'no-store' })
         .then(response => {
             if (!response.ok) {
                 throw new Error('Server non raggiungibile');
@@ -124,7 +124,7 @@ function getPeriodoFestivo() {
     ) {
         return 'Pasqua';
     } else if (
-        (dataCorrente >= new Date(anno, 9, 20) && dataCorrente <= new Date(anno, 10, 2)) // Periodo di Halloween: dal 20 ottobre al 2 novembre
+        (dataCorrente >= new Date(anno, 9, 15) && dataCorrente <= new Date(anno, 9, 31)) // Periodo di Halloween: dal 20 ottobre al 2 novembre
     ) {
         return 'Halloween';
     } else {

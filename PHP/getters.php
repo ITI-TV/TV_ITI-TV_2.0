@@ -1,6 +1,6 @@
 <?php
 function connectDatabase() {
-    $servername = "192.168.1.147";
+    $servername = "db-sites";
     $username = "ititv";
     $password = "ititv";
     $dbname = "ititv";
