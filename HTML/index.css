@@ -206,6 +206,10 @@ body {
 }
 
 /* FOOTER */
+.emergenzaClassico {
+    color: red;       /* Cambia colore o aggiungi altri stili a piacere */
+}
+
 #footer {
     width: 1920px;
     height: 158px;
@@ -216,9 +220,8 @@ body {
 }
 
 #ScrollText {
-    display: flex;
     width: 326px;
-    height: 132px;
+    height: 60px;
     flex-direction: column;
     flex-shrink: 0;
     justify-content: center;
@@ -229,7 +232,7 @@ body {
     font-style: normal;
     font-weight: 735;
     position: absolute;
-    top: 16px;
+    top: 50px;
     left: 0;
 }
 

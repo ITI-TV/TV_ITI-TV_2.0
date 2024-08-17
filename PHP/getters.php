@@ -1,11 +1,8 @@
 <?php
 function connectDatabase() {
-    $servername = "db-sites";
-    $username = "ititv";
-    $password = "ititv";
-    $dbname = "ititv";
+    require ('infoAccess.php');
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli($serverConn, $usernameConn, $passwordConn, $dbnameConn);
 
     if ($conn->connect_error) {
         die(json_encode(array("error" => "Connessione al database fallita: " . $conn->connect_error)));
@@ -145,15 +142,21 @@ function getProgrammazione(){
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'getEmergenze') {
         getEmergenze();
+        require ('GestoreNumeroPagine.php');
     } elseif ($_GET['action'] == 'getNews') {
         getNews();
+        require ('GestoreNumeroPagine.php');
     } elseif ($_GET['action'] == 'getComponentiAggiuntivi') {
         getComponentiAggiuntivi();
+        require ('GestoreNumeroPagine.php');
     } elseif ($_GET['action'] == 'getEventiGiornalieri') {
         getEventiGiornalieri();
+        require ('GestoreNumeroPagine.php');
     } elseif ($_GET['action'] == 'getComunicazioni') {
         getComunicazioni();
+        require ('GestoreNumeroPagine.php');
     } elseif ($_GET['action'] == 'getProgrammazione') {
+        require ('GestoreNumeroPagine.php');
         getProgrammazione();
     } else {
         echo json_encode(array("error" => "Azione non valida"));

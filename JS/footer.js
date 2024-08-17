@@ -32,7 +32,7 @@ function startFooter() {
                     let contatoreEmergenze = NumeroEmergenze === 1 ? 0 : 1;
                     let StringaFooter = '  --  ';
                     for (let i = 0; i < max(NumeroNews, NumeroEmergenze); i++) {
-                        StringaFooter += news[contatoreNews]['Corpo'] + '  --  ' + emergenze[contatoreEmergenze]['Corpo'] + '  --  ';
+                        StringaFooter += news[contatoreNews]['Corpo'] + '  --  ' + "<span class='emergenza" + getPeriodoFestivo() + "'>" + emergenze[contatoreEmergenze]['Corpo'] + '</span>' + '  --  ';
                         if (NumeroNews === 1) {
                             contatoreNews = 0;
                         } else {
@@ -47,7 +47,7 @@ function startFooter() {
                     let box = document.getElementById('ScrollText');
                     box.innerHTML = StringaFooter;
 
-                    let numeroCaratteri = StringaFooter.length;
+                    let numeroCaratteri = box.innerText.length;
                     let larghezzaTotale = numeroCaratteri * LARGHEZZA_CARATTERE;
                     box.style.width = (larghezzaTotale + PADDING_ADDITIVO) + "px";
 

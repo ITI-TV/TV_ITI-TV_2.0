@@ -1,10 +1,10 @@
 // Costanti configurabili
 const PERIODO_NATALE_INIZIO = 8; // Inizio periodo di Natale (8 dicembre)
-const PERIODO_NATALE_FINE = 8; // Fine periodo di Natale (8 gennaio)
+const PERIODO_NATALE_FINE = 6; // Fine periodo di Natale (6 gennaio)
 
 //Saluti e dichiarazione della versione della TV e crediti
 console.log('Benvenuto nella TV del progetto ITI-TV dell`IIS "N.Copernico A.Carpeggiani"');
-console.log('Versione b2.0.26');
+console.log('Versione b2.0.30');
 console.log('Crediti: ');
 console.log('. Classe 5X Informatica 2024/25 (Project Manager: Gabriele Bovina e Samuele Marinelli)');
 console.log('. Classe 4X Informatica 2023/24 (Project Manager: Gabriele Bovina e Samuele Marinelli)');
@@ -14,12 +14,12 @@ console.log('Ringraziamenti per il supporto e la collaborazione per gli eventi g
 
 // Variabili per il controllo dello stato del server
 //prendo il link dinamicamente in base all'url presnete sulla barra del browser
-const serverUrl = window.location.href + "/index.html" + '?cache_buster=' + new Date().getTime();
+const serverUrl = window.location.origin + '/index.html';
 let isOffline = false;
 
 function checkServer() {
     //faccio un thread a parte per controllare se il server è online
-    fetch(serverUrl, { cache: 'no-store' })
+    fetch(serverUrl, { method: 'HEAD' })
         .then(response => {
             if (!response.ok) {
                 throw new Error('Server non raggiungibile');
@@ -124,7 +124,7 @@ function getPeriodoFestivo() {
     ) {
         return 'Pasqua';
     } else if (
-        (dataCorrente >= new Date(anno, 9, 15) && dataCorrente <= new Date(anno, 9, 31)) // Periodo di Halloween: dal 20 ottobre al 2 novembre
+        (dataCorrente >= new Date(anno, 9, 20) && dataCorrente <= new Date(anno, 10, 2)) // Periodo di Halloween: dal 20 ottobre al 2 novembre
     ) {
         return 'Halloween';
     } else {
@@ -261,12 +261,12 @@ function starter() {
                 }
             }
             //in base all'indice trovato mi salvo, numero comunicazioni, numero eventi giornalieri, numero componenti aggiuntivi e tempo totale in secondi
-            let NumeroComunicazioni = programmazione[indice]['Numero Comunicazioni'];
-            let NumeroEventiGiornalieri = programmazione[indice]['Numero Eventi Giornalieri'];
-            let NumeroComponentiAggiuntivi = programmazione[indice]['Numero Componenti Aggiuntivi'];
+            let NumeroComunicazioni = programmazione[indice]['Numero_Comunicazioni'];
+            let NumeroEventiGiornalieri = programmazione[indice]['Numero_Eventi_Giornalieri'];
+            let NumeroComponentiAggiuntivi = programmazione[indice]['Numero_Componenti_Aggiuntivi'];
             //calcolo i secondi totali di visualizzazione prendendo da Ora inizo e Ora fine
-            let oraInizio = programmazione[indice]['Ora Inizio'];
-            let oraFine = programmazione[indice]['Ora Fine'];
+            let oraInizio = programmazione[indice]['Ora_Inizio'];
+            let oraFine = programmazione[indice]['Ora_Fine'];
             let oraInizioSplit = oraInizio.split(':');
             let oraFineSplit = oraFine.split(':');
             let oraInizioSecondi = oraInizioSplit[0] * 3600 + oraInizioSplit[1] * 60;
