@@ -244,15 +244,18 @@ function starter() {
             //creo una scaletta con tutti gli orari presenti in programazione
             let scalettaInizi = [];
             for (let i = 0; i < programmazione.length; i++) {
-                scalettaInizi.push(programmazione[i]['Ora Inizio']);
+                scalettaInizi.push(programmazione[i]['Ora_Inizio']);
             }
             let scalettaFine = [];
             for (let i = 0; i < programmazione.length; i++) {
-                scalettaFine.push(programmazione[i]['Ora Fine']);
+                scalettaFine.push(programmazione[i]['Ora_Fine']);
             }
             //cerco l'indice dell'orario attuale
             let indice = 0;
             let trovato = false;
+            console.log('Orario: ' + orario);
+            console.log('Scaletta inizi: ' + scalettaInizi);
+            console.log('Scaletta fine: ' + scalettaFine);
             for (let i = 0; i < scalettaInizi.length && !trovato; i++) {
                 //controllo se l'orario attuale è compreso tra due orari della scaletta, anche i minuti
                 if (orario >= scalettaInizi[i] && orario <= scalettaFine[i]) {
@@ -260,7 +263,10 @@ function starter() {
                     trovato = true;
                 }
             }
-            console.log('Indice: ' + indice + programmazione[indice]);
+            console.log('Indice: ' + indice );
+            console.log('Programmazione: ' + programmazione[indice]['Numero_Comunicazioni']);
+            console.log('Programmazione: ' + programmazione[indice]['Numero_Eventi_Giornalieri']);
+            console.log('Programmazione: ' + programmazione[indice]['Numero_Componenti_Aggiuntivi']);
             try{
                 //in base all'indice trovato mi salvo, numero comunicazioni, numero eventi giornalieri, numero componenti aggiuntivi e tempo totale in secondi
                 let NumeroComunicazioni = programmazione[indice]['Numero_Comunicazioni'];
@@ -314,10 +320,6 @@ function shuffleArray(array) {
 
 function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAggiuntivi, TempoTotaleDisponibile, oraInizio, oraFine, periodo) {
     let programmazione = [];
-    ("Visualizzazione di componenti");
-    ("Numero Comunicazioni: " + NumeroComunicazioni);
-    ("Numero Eventi Giornalieri: " + NumeroEventiGiornalieri);
-    ("Numero Componenti Aggiuntivi: " + NumeroComponentiAggiuntivi);
     document.getElementById("main").style.display = "block";
     document.getElementById("footer").style.display = "block";
     document.getElementById("header").style.display = "block";
@@ -334,7 +336,7 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
     // Mescola l'array per distribuire equamente i numeri
     programmazione = shuffleArray(programmazione);
 
-    let TempoDisponibilePerOgniPagina = TempoTotaleDisponibile / programmazione.length;
+    let TempoDisponibilePerOgniPagina = (NumeroComponentiAggiuntivi+NumeroComunicazioni+NumeroEventiGiornalieri) / programmazione.length * 60;
 
     let currentIndex = 0;
     let TestoTitolo = document.getElementById("TestoTitolo");
@@ -342,11 +344,15 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
     function processNext() {
         //faccio il calcolo del tempo rimanente in secondi con OraIni e OraFine
         let TempoRimanente = (oraFine.split(':')[0] * 3600 + oraFine.split(':')[1] * 60 - getOrario().split(':')[0] * 3600 - getOrario().split(':')[1] * 60) + 60;
-        if (oraFine.split(':')[0] * 3600 + oraFine.split(':')[1] * 60 < getOrario().split(':')[0] * 3600 + getOrario().split(':')[1] * 60) {
-            TempoRimanente += 86400;
-        }
         //controllo che non sia passato il tempo totale disponibile
         if (TempoRimanente > 0) {
+            console.log('Tempo rimanente: ' + TempoRimanente);
+            console.log('Tempo disponibile per ogni pagina: ' + TempoDisponibilePerOgniPagina);
+            console.log('Pagina corrente: ' + currentIndex);
+            console.log('Programmazione: ' + programmazione);
+            console.log('Numero Comunicazioni: ' + NumeroComunicazioni);
+            console.log('Numero Eventi Giornalieri: ' + NumeroEventiGiornalieri);
+            console.log('Numero Componenti Aggiuntivi: ' + NumeroComponentiAggiuntivi);
             if (NumeroComponentiAggiuntivi === "0" && NumeroComunicazioni === "0" && NumeroEventiGiornalieri === "0" || NumeroComunicazioni === 0 && NumeroEventiGiornalieri === 0 && NumeroComponentiAggiuntivi === 0) {
                 // Mostra una schermata nera
                 $('#main').css('display', 'none');
