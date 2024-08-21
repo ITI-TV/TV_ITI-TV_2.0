@@ -260,26 +260,33 @@ function starter() {
                     trovato = true;
                 }
             }
-            //in base all'indice trovato mi salvo, numero comunicazioni, numero eventi giornalieri, numero componenti aggiuntivi e tempo totale in secondi
-            let NumeroComunicazioni = programmazione[indice]['Numero_Comunicazioni'];
-            let NumeroEventiGiornalieri = programmazione[indice]['Numero_Eventi_Giornalieri'];
-            let NumeroComponentiAggiuntivi = programmazione[indice]['Numero_Componenti_Aggiuntivi'];
-            //calcolo i secondi totali di visualizzazione prendendo da Ora inizo e Ora fine
-            let oraInizio = programmazione[indice]['Ora_Inizio'];
-            let oraFine = programmazione[indice]['Ora_Fine'];
-            let oraInizioSplit = oraInizio.split(':');
-            let oraFineSplit = oraFine.split(':');
-            let oraInizioSecondi = oraInizioSplit[0] * 3600 + oraInizioSplit[1] * 60;
-            let oraFineSecondi = oraFineSplit[0] * 3600 + oraFineSplit[1] * 60;
-            if (oraFineSecondi < oraInizioSecondi) {
-                oraFineSecondi += 86400;
+            console.log('Indice: ' + indice + programmazione[indice]);
+            try{
+                //in base all'indice trovato mi salvo, numero comunicazioni, numero eventi giornalieri, numero componenti aggiuntivi e tempo totale in secondi
+                let NumeroComunicazioni = programmazione[indice]['Numero_Comunicazioni'];
+                let NumeroEventiGiornalieri = programmazione[indice]['Numero_Eventi_Giornalieri'];
+                let NumeroComponentiAggiuntivi = programmazione[indice]['Numero_Componenti_Aggiuntivi'];
+                //calcolo i secondi totali di visualizzazione prendendo da Ora inizo e Ora fine
+                let oraInizio = programmazione[indice]['Ora_Inizio'];
+                let oraFine = programmazione[indice]['Ora_Fine'];
+                let oraInizioSplit = oraInizio.split(':');
+                let oraFineSplit = oraFine.split(':');
+                let oraInizioSecondi = oraInizioSplit[0] * 3600 + oraInizioSplit[1] * 60;
+                let oraFineSecondi = oraFineSplit[0] * 3600 + oraFineSplit[1] * 60;
+                if (oraFineSecondi < oraInizioSecondi) {
+                    oraFineSecondi += 86400;
+                }
+                let TempoTotaleSecondi = oraFineSecondi - oraInizioSecondi;
+                let periodo = getPeriodoFestivo();
+                loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAggiuntivi, TempoTotaleSecondi, oraInizio, oraFine, periodo);
+            }catch (e){
+                console.error('Errore nella richiesta:', e);
+                window.location.reload();
             }
-            let TempoTotaleSecondi = oraFineSecondi - oraInizioSecondi;
-            let periodo = getPeriodoFestivo();
-            loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAggiuntivi, TempoTotaleSecondi, oraInizio, oraFine, periodo);
         })
         .catch(error => {
             console.error('Errore nella richiesta:', error);
+            window.location.reload();
         });
 }
 
@@ -387,3 +394,6 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
     }
     processNext();
 }
+
+//quando la pagina è  carica eseguo la funzione starter
+document.addEventListener('DOMContentLoaded', starter);

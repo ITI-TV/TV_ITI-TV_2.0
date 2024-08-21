@@ -22,6 +22,11 @@ function deleteOldEntries($conn, $tag, $table) {
 function deleteOldEntriesComponentiAggiuntivi($conn, $table) {
     $sql = "DELETE FROM $table WHERE Data_fine < CURDATE()";
     $stmt = $conn->prepare($sql);
+
+    if ($stmt === false) {
+        die(json_encode(array("error" => "Errore nella preparazione della query: " . $conn->error)));
+    }
+
     $stmt->execute();
     $stmt->close();
 }
@@ -58,7 +63,7 @@ function getEntriesComponentiAggiuntivi($conn, $table){
 }
 
 function getEntriesEventiGiornalieri($conn) {
-    $sql = "SELECT * FROM Eventi_Giornalieri WHERE Mese = MONTH(CURDATE()) AND Giorno = DAY(CURDATE())";
+    $sql = "SELECT * FROM eventi_giornalieri WHERE Mese = MONTH(CURDATE()) AND Giorno = DAY(CURDATE())";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -73,7 +78,7 @@ function getEntriesEventiGiornalieri($conn) {
 }
 
 function getEntriesProgrammazione($conn){
-    $sql = "SELECT * FROM `Programmazione`";
+    $sql = "SELECT * FROM `programmazione`";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -89,8 +94,8 @@ function getEntriesProgrammazione($conn){
 
 function getEmergenze() {
     $conn = connectDatabase();
-    deleteOldEntries($conn, 'emergenza', 'Comunicazione');
-    $rows = getEntriesComunicazioni($conn, 'emergenza', 'Comunicazione');
+    deleteOldEntries($conn, 'emergenza', 'comunicazione');
+    $rows = getEntriesComunicazioni($conn, 'emergenza', 'comunicazione');
     $conn->close();
     header('Content-Type: application/json');
     echo json_encode($rows);
@@ -98,8 +103,8 @@ function getEmergenze() {
 
 function getNews() {
     $conn = connectDatabase();
-    deleteOldEntries($conn, 'news', 'Comunicazione');
-    $rows = getEntriesComunicazioni($conn, 'news', 'Comunicazione');
+    deleteOldEntries($conn, 'news', 'comunicazione');
+    $rows = getEntriesComunicazioni($conn, 'news', 'comunicazione');
     $conn->close();
     header('Content-Type: application/json');
     echo json_encode($rows);
@@ -107,8 +112,8 @@ function getNews() {
 
 function getComponentiAggiuntivi() {
     $conn = connectDatabase();
-    deleteOldEntriesComponentiAggiuntivi($conn, 'Componenti_Aggiuntivi');
-    $rows = getEntriesComponentiAggiuntivi($conn, 'Componenti_Aggiuntivi');
+    deleteOldEntriesComponentiAggiuntivi($conn, 'componenti_aggiuntivi');
+    $rows = getEntriesComponentiAggiuntivi($conn, 'componenti_aggiuntivi');
     $conn->close();
     header('Content-Type: application/json');
     echo json_encode($rows);
@@ -124,8 +129,8 @@ function getEventiGiornalieri() {
 
 function getComunicazioni() {
     $conn = connectDatabase();
-    deleteOldEntries($conn, 'comunicazione', 'Comunicazione');
-    $rows = getEntriesComunicazioni($conn, 'comunicazione', 'Comunicazione');
+    deleteOldEntries($conn, 'comunicazione', 'comunicazione');
+    $rows = getEntriesComunicazioni($conn, 'comunicazione', 'comunicazione');
     $conn->close();
     header('Content-Type: application/json');
     echo json_encode($rows);
