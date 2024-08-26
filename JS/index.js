@@ -128,7 +128,7 @@ function getPeriodoFestivo() {
     ) {
         return 'Halloween';
     } else {
-        return 'Classico'; // Se non è un periodo festivo, carica il periodo Classico
+        return 'Halloween'; // Se non è un periodo festivo, carica il periodo Classico
     }
 }
 
@@ -224,9 +224,92 @@ function setFooterPasqua() {
 }
 
 function setHeaderHalloween() {
+    document.getElementById('boxHeader').style.backgroundColor = '#1A0556';
+    //creo un div
+    let LineaDivisoreHeaderMain = document.createElement('div');
+    //gli do un id
+    LineaDivisoreHeaderMain.id = 'LineaDivisoreHeaderMainHeaderNat';
+    //gli do una posizione absolute e un top 191px
+    LineaDivisoreHeaderMain.style.position = 'absolute';
+    LineaDivisoreHeaderMain.style.top = '160px';
+    //gli do un colore 8D53F7
+    LineaDivisoreHeaderMain.style.backgroundColor = '#000';
+    //gli do una larghezza 1920px e un'altezza 5px
+    LineaDivisoreHeaderMain.style.width = '1920px';
+    LineaDivisoreHeaderMain.style.height = '5px';
+    //attacho il div a boxHeader
+    document.getElementById('boxHeader').appendChild(LineaDivisoreHeaderMain);
+    //rimuovo logoITI
+    document.getElementById('logoITI').style.display = 'none';
+    document.getElementById('logoITITV').style.display = 'block';
+    //sposto TestoTitolo a lefdt 44px
+    document.getElementById('TestoTitolo').style.left = '44px';
+    //imposto font famili 'Recursive', sans-serif
+    document.getElementById('TestoTitolo').style.fontFamily = 'Recursive', 'sans-serif';
+    //creo una img
+    let IMGStellaCadente = document.createElement('img');
+    //gli do l'src dell'immagine
+    IMGStellaCadente.src = '/IMG/Immagini Sito/Halloween/Luna.png';
+    //gli do un top di 70px e un left di 1386px position absolute
+    IMGStellaCadente.style.position = 'absolute';
+    IMGStellaCadente.style.top = '3px';
+    IMGStellaCadente.style.left = '1400px';
+    //attcaho l'img a boxHeader
+    document.getElementById('boxHeader').appendChild(IMGStellaCadente);
+
 }
 
 function setFooterHalloween() {
+    document.getElementById('footer').style.backgroundColor = '#1A0556';
+    //creo una immagine
+    let IMGBabboNatale = document.createElement('img');
+    //gli do l'src dell'immagine
+    IMGBabboNatale.src = '/IMG/Immagini Sito/Halloween/Nighmare.png';
+    //gli do un top di 0px e un left di 0px position absolute
+    IMGBabboNatale.style.position = 'absolute';
+    IMGBabboNatale.style.top = '0px';
+    IMGBabboNatale.style.left = '0px';
+    //lo attacco a boxOrarioData
+    document.getElementById('boxOrarioData').appendChild(IMGBabboNatale);
+    //imposto a boxOrariodata un background color #FFF
+    document.getElementById('boxOrarioData').style.backgroundColor = '#1C1C1C';
+    //A OrarioData color F90E0E
+    document.getElementById('OraData').style.color = '#fff';
+    //imposto il text align a destra
+    document.getElementById('OraData').style.textAlign = 'right';
+    //rimpicciolisco il box di lunghezza
+    document.getElementById('OraData').style.width = '295px';
+    //imposto font Inter, sans-serif
+    document.getElementById('OraData').style.fontFamily = `Inter`, 'sans-serif';
+    //gli do un z-index 1
+    document.getElementById('OraData').style.zIndex = '1';
+    //rimpicciolisco il font-size a 20px
+    document.getElementById('OraData').style.fontSize = '40px';
+    //saposto a sinistra di 20px
+    document.getElementById('OraData').style.left = '20px';
+    //creo un div di nome LineaDivisoreFooterMainFooterNat
+    let LineaDivisoreFooterMainFooterNat = document.createElement('div');
+    //gli do un altezza di 5xp, una lunghezza di 1920px, un background color #8D53F7 e un top di 0px
+    LineaDivisoreFooterMainFooterNat.style.height = '5px';
+    LineaDivisoreFooterMainFooterNat.style.width = '1920px';
+    LineaDivisoreFooterMainFooterNat.style.backgroundColor = '#BD6311';
+    LineaDivisoreFooterMainFooterNat.style.top = '0px';
+    //gli do una posizione absolute
+    LineaDivisoreFooterMainFooterNat.style.position = 'absolute';
+    //attacco il div a footer
+    document.getElementById('footer').appendChild(LineaDivisoreFooterMainFooterNat);
+    //creo un div di nome LineaDivisoreFooterOrarioFooterNat
+    let LineaDivisoreFooterOrarioFooterNat = document.createElement('div');
+    //gli do un altezza di 158px lunchezza 23px background color #C5A643 e un top di 0px e unm left di 357px, position absolute
+    LineaDivisoreFooterOrarioFooterNat.style.height = '158px';
+    LineaDivisoreFooterOrarioFooterNat.style.width = '23px';
+    LineaDivisoreFooterOrarioFooterNat.style.backgroundColor = '#BD6311';
+    LineaDivisoreFooterOrarioFooterNat.style.top = '0px';
+    LineaDivisoreFooterOrarioFooterNat.style.left = '325px';
+    LineaDivisoreFooterOrarioFooterNat.style.position = 'absolute';
+    //attacco il div a footer
+    document.getElementById('footer').appendChild(LineaDivisoreFooterOrarioFooterNat);
+
 }
 
 function starter() {
@@ -263,11 +346,11 @@ function starter() {
                     trovato = true;
                 }
             }
-            console.log('Indice: ' + indice );
+            console.log('Indice: ' + indice);
             console.log('Programmazione: ' + programmazione[indice]['Numero_Comunicazioni']);
             console.log('Programmazione: ' + programmazione[indice]['Numero_Eventi_Giornalieri']);
             console.log('Programmazione: ' + programmazione[indice]['Numero_Componenti_Aggiuntivi']);
-            try{
+            try {
                 //in base all'indice trovato mi salvo, numero comunicazioni, numero eventi giornalieri, numero componenti aggiuntivi e tempo totale in secondi
                 let NumeroComunicazioni = programmazione[indice]['Numero_Comunicazioni'];
                 let NumeroEventiGiornalieri = programmazione[indice]['Numero_Eventi_Giornalieri'];
@@ -285,7 +368,7 @@ function starter() {
                 let TempoTotaleSecondi = oraFineSecondi - oraInizioSecondi;
                 let periodo = getPeriodoFestivo();
                 loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAggiuntivi, TempoTotaleSecondi, oraInizio, oraFine, periodo);
-            }catch (e){
+            } catch (e) {
                 console.error('Errore nella richiesta:', e);
                 window.location.reload();
             }
@@ -336,7 +419,7 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
     // Mescola l'array per distribuire equamente i numeri
     programmazione = shuffleArray(programmazione);
 
-    let TempoDisponibilePerOgniPagina = (NumeroComponentiAggiuntivi+NumeroComunicazioni+NumeroEventiGiornalieri) / programmazione.length * 60;
+    let TempoDisponibilePerOgniPagina = (NumeroComponentiAggiuntivi + NumeroComunicazioni + NumeroEventiGiornalieri) / programmazione.length * 60;
 
     let currentIndex = 0;
     let TestoTitolo = document.getElementById("TestoTitolo");
@@ -367,6 +450,7 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
 
 
             } else {
+                console.log(periodo);
                 if (periodo === 'Natalizia') {
                     setHeaderNat();
                     setFooterNat();
