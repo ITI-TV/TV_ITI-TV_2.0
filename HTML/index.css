@@ -997,4 +997,241 @@ body {
 
 /* EVENTI GIORNALIERI */
 
+#boxEventiGiornalieriHall {
+    width: 1798px;
+    height: 660px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 2.5px solid #FB8D84;
+    background: #1D002D;
+    position: absolute;
+    top: 59px;
+    left: 60px;
+}
+
+#boxHeaderEventiGiornalieriHall {
+    width: 1798px;
+    height: 90px;
+    flex-shrink: 0;
+    background-color: #FF6C37;
+    position: absolute;
+    top: -2.5px;
+    left: -2.5px;
+    border-radius: 15px 15px 0 0;
+    border: 2.5px solid #FF6C37;
+}
+
+#giornoAttualeEventiGiornalieriHall {
+    width: 522px;
+    height: 60px;
+    color: #FFF;
+    text-align: center;
+    font-family: 'OutFit', sans-serif;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    top: 17px;
+    left: 28px;
+}
+
+#TitoloEventiGiornalieriHall {
+    width: 1180px;
+    height: 60px;
+    color: #FFF;
+    position: absolute;
+    top: 17px;
+    left: 608px;
+    text-align: center;
+    font-family: 'OutFit', sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+}
+
+#boxImmagineEventiGiornalieriHall {
+    width: 898px;
+    height: 496px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 15px 15px 0;
+    border: 1px solid #FF6C37;
+    background: #231336;
+    position: absolute;
+    top: 123px;
+    left: 0;
+}
+
+#ImmagineEventiGiornalieriHall {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+}
+
+#TestoEventiGiornalieriHall {
+    display: flex;
+    width: 836px;
+    height: 520px;
+    flex-direction: column;
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: justify;
+    font-family: 'OutFit', sans-serif;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    position: absolute;
+    top: 110px;
+    left: 942px;
+}
+
+#Immagine1EventiGiornalieri {
+    position: absolute;
+    top: -30px;
+    left: 410px;
+}
+
+#Immagine2EventiGiornalieri {
+    position: absolute;
+    top: -40px;
+    left: 0;
+}
+
+#Immagine3EventiGiornalieri {
+    position: absolute;
+    top: 550px;
+    left: 810px;
+}
+
 /* COMPONENTI AGGIUNTIVI */
+
+#boxComponentiAggiuntiviHall {
+    width: 1798px;
+    height: 660px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 2.5px solid #FB8D84;
+    background: #1D002D;
+    position: absolute;
+    top: 59px;
+    left: 60px;
+}
+
+#boxHeaderComponentiAggiuntiviHall {
+    width: 1798px;
+    height: 90px;
+    flex-shrink: 0;
+    background-color: #FF6C37;
+    border: 2.5px solid #FF6C37;
+    position: absolute;
+    top: -2.5px;
+    left: -2.5px;
+    border-radius: 15px 15px 0 0;
+}
+
+#TitoloComponentiAggiuntiviHall {
+    width: 1700px;
+    height: 60px;
+    color: #FFF;
+    position: absolute;
+    top: 17px;
+    left: 49px;
+    text-align: center;
+    font-family: 'OutFit', sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+}
+
+#boxImmagineComponentiAggiuntiviHall {
+    width: 708px;
+    height: 496px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px 0 0 15px;
+    border: 1px solid #FF6C37;
+    background: #231336;
+    position: absolute;
+    top: 110px;
+    left: 1087px;
+}
+
+#ImmagineComponentiAggiuntiviHall {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+}
+
+#TestoComponentiAggiuntiviHall {
+    display: flex;
+    width: 1036px;
+    height: 496px;
+    flex-direction: column;
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: justify;
+    font-family: 'OutFit', sans-serif;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    position: absolute;
+    top: 110px;
+    left: 20px;
+}
+
+#boxProfComponentiAggiuntiviHall {
+    width: 100%;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 0 0 15px 15px;
+    background-color: #FF6C37;
+    border: 2.5px solid #FF6C37;
+    position: absolute;
+    top: 626px;
+}
+
+#ProfComponentiAggiuntiviHall {
+    color: #FFF;
+    text-align: right;
+    font-family: 'OutFit', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-right: 20px;
+}
+
+#Immagine1ComponentiAggiuntiviHall {
+    position: absolute;
+    top: -40px;
+    left: -70px;
+}
+
+#Immagine2ComponentiAggiuntiviHall {
+    position: absolute;
+    top: -40px;
+    left: -80px;
+}
+
+#Immagine3ComponentiAggiuntiviHall {
+    position: absolute;
+    top: 520px;
+    left: -70px;
+}
+
+#Immagine4ComponentiAggiuntiviHall {
+    position: absolute;
+    top: -120px;
+    left: 1725px;
+}
