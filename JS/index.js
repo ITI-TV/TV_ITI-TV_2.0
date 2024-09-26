@@ -17,6 +17,13 @@ console.log('Ringraziamenti per il supporto e la collaborazione per gli eventi g
 const serverUrl = window.location.origin + '/TVITITV/index.html';
 let isOffline = false;
 
+// Funzione che parte al caricamento del sito e controlla con la funzione lo stato del server ogni 2 secondi
+function checkServer2Seconds() {
+    checkServer();
+    setTimeout(checkServer2Seconds, 1000);
+}
+
+//Funzione di controllo server
 function checkServer() {
     //faccio un thread a parte per controllare se il server è online
     fetch(serverUrl, { method: 'HEAD' })
@@ -567,3 +574,4 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
 
 //quando la pagina è  carica eseguo la funzione starter
 document.addEventListener('DOMContentLoaded', starter);
+document.addEventListener('DOMContentLoaded', checkServer2Seconds);
