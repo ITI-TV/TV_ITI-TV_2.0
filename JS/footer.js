@@ -1,4 +1,4 @@
-const LARGHEZZA_CARATTERE = 29;
+const LARGHEZZA_CARATTERE = 35;
 const VELOCITA_SCORRIMENTO = 5;
 const POSIZIONE_INIZIALE = 1920;
 const PADDING_ADDITIVO = 0;
@@ -15,6 +15,7 @@ function startFooter() {
             if (!response.ok) {
                 throw new Error('Errore HTTP: ' + response.status);
             }
+            checkServer();
             return response.json();
         })
         .then(news => {
@@ -26,6 +27,7 @@ function startFooter() {
                     return response.json();
                 })
                 .then(emergenze => {
+                    checkServer();
                     let NumeroNews = news.length;
                     let NumeroEmergenze = emergenze.length;
                     let contatoreNews = NumeroNews === 1 ? 0 : 1;
