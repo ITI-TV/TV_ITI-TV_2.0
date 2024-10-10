@@ -1,28 +1,28 @@
 /* --FONTS-- */
 @font-face {
     font-family: FiraMono;
-    src: url(/Fonts/FiraMono/FiraMono-Bold.ttf) format("truetype");
+    src: url(Fonts/FiraMono/FiraMono-Bold.ttf) format("truetype");
     font-style: normal;
 }
 
 @font-face {
     font-family: OutFit;
-    src: url(/Fonts/OutFit/Outfit-VariableFont_wght.ttf) format("truetype");
+    src: url(Fonts/OutFit/Outfit-VariableFont_wght.ttf) format("truetype");
 }
 
 @font-face {
     font-family: Righteous;
-    src: url(/Fonts/Righteous/Righteous-Regular.ttf) format("truetype");
+    src: url(Fonts/Righteous/Righteous-Regular.ttf) format("truetype");
 }
 
 @font-face {
     font-family: Recursive;
-    src: url(/Fonts/Recursive/Recursive-VariableFont_CASL,CRSV,MONO,slnt,wght.ttf) format("truetype");
+    src: url(Fonts/Recursive/Recursive-VariableFont_CASL,CRSV,MONO,slnt,wght.ttf) format("truetype");
 }
 
 @font-face {
     font-family: Inter;
-    src: url(/Fonts/Inter/Inter-VariableFont_slnt,wght.ttf) format("truetype");
+    src: url(Fonts/Inter/Inter-VariableFont_slnt,wght.ttf) format("truetype");
 }
 
 /* GRAFICA DI BASE */

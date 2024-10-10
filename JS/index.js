@@ -14,7 +14,7 @@ console.log('Ringraziamenti per il supporto e la collaborazione per gli eventi g
 
 // Variabili per il controllo dello stato del server
 //prendo il link dinamicamente in base all'url presnete sulla barra del browser
-const serverUrl = window.location.origin + '/index.html';
+const serverUrl = window.location.origin + '/TVITITV/index.html';
 let isOffline = false;
 
 function checkServer() {
@@ -128,7 +128,7 @@ function getPeriodoFestivo() {
     ) {
         return 'Halloween';
     } else {
-        return 'Halloween'; // Se non è un periodo festivo, carica il periodo Classico
+        return 'Classico'; // Se non è un periodo festivo, carica il periodo Classico
     }
 }
 
@@ -425,8 +425,77 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
     let TestoTitolo = document.getElementById("TestoTitolo");
 
     function processNext() {
-        //faccio il calcolo del tempo rimanente in secondi con OraIni e OraFine
+        //calcolo il tempo rimanente in secondi considerando anche il minuto dell'ora finele
         let TempoRimanente = (oraFine.split(':')[0] * 3600 + oraFine.split(':')[1] * 60 - getOrario().split(':')[0] * 3600 - getOrario().split(':')[1] * 60) + 60;
+        oraCorrente = getOrario().split(':')[0] * 3600 + getOrario().split(':')[1] * 60;
+        if (TempoRimanente > 0 && TempoRimanente != 86400) {
+            console.log('Tempo rimanente: ' + TempoRimanente);
+            console.log('Tempo disponibile per ogni pagina: ' + TempoDisponibilePerOgniPagina);
+            console.log('Pagina corrente: ' + currentIndex);
+            console.log('Programmazione: ' + programmazione);
+            console.log('Numero Comunicazioni: ' + NumeroComunicazioni);
+            console.log('Numero Eventi Giornalieri: ' + NumeroEventiGiornalieri);
+            console.log('Numero Componenti Aggiuntivi: ' + NumeroComponentiAggiuntivi);
+            if (NumeroComponentiAggiuntivi === 0 && NumeroComunicazioni === 0 && NumeroEventiGiornalieri === 0) {
+                // Mostra una schermata nera
+                $('#main').css('display', 'none');
+                $('#footer').css('display', 'none');
+                $('#header').css('display', 'none');
+                $('body').css('background-color', 'black');
+
+                setTimeout(() => {
+                    checkServer();
+                    location.reload();
+                }
+                    , TempoRimanente * 1000);
+            }
+            else {
+                console.log(periodo);
+                if (periodo === 'Natalizia') {
+                    setHeaderNat();
+                    setFooterNat();
+                } else if (periodo === 'Pasqua') {
+                    setHeaderPasqua();
+                    setFooterPasqua();
+                } else if (periodo === 'Halloween') {
+                    setHeaderHalloween();
+                    setFooterHalloween();
+                }
+                let pagina = programmazione[currentIndex];
+                if (pagina === 'C') {
+                    checkServer();
+                    TestoTitolo.innerHTML = 'COMUNICAZIONI GIORNALIERE';
+                    loadComunicazioni(periodo);
+                } else if (pagina === 'E') {
+                    checkServer();
+                    TestoTitolo.innerHTML = 'RICORRENZA DEL GIORNO';
+                    loadEventiGiornalieri(periodo);
+                } else if (pagina === 'A') {
+                    checkServer();
+                    TestoTitolo.innerHTML = 'COMPONENTI AGGIUNTIVI';
+                    loadComponentiAggiuntivi(periodo);
+                }
+                currentIndex++;
+                setTimeout(processNext, TempoDisponibilePerOgniPagina * 1000);
+            }
+        } else {
+            starter();
+        }
+        /*
+        //calcolo il tempo rimanente in secondi
+        let data = new Date();
+        let ora = data.getHours();
+        let minuti = data.getMinutes();
+        let secondi = data.getSeconds();
+        let oraCorrente = ora * 3600 + minuti * 60 + secondi;
+        let oraInizioSplit = oraInizio.split(':');
+        let oraInizioSecondi = oraInizioSplit[0] * 3600 + oraInizioSplit[1] * 60;
+        let oraFineSplit = oraFine.split(':');
+        let oraFineSecondi = oraFineSplit[0] * 3600 + oraFineSplit[1] * 60;
+        if (oraFineSecondi < oraInizioSecondi) {
+            oraFineSecondi += 86400;
+        }
+        let TempoRimanente = oraFineSecondi - oraCorrente;
         //controllo che non sia passato il tempo totale disponibile
         if (TempoRimanente > 0) {
             console.log('Tempo rimanente: ' + TempoRimanente);
@@ -478,9 +547,20 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
                 currentIndex++;
                 setTimeout(processNext, TempoDisponibilePerOgniPagina * 1000);
             }
+        } else if (oraCorrente < oraInizioSecondi) {
+            $('#main').css('display', 'none');
+            $('#footer').css('display', 'none');
+            $('#header').css('display', 'none');
+            $('body').css('background-color', 'black');
+
+            setTimeout(() => {
+                checkServer();
+                location.reload();
+            }, TempoRimanente * 1000);
         } else {
             starter();
         }
+            */
     }
     processNext();
 }
