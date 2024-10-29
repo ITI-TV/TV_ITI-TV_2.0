@@ -26,13 +26,13 @@
 <div id="BoxInfoPsicologo">
     <div id="TestoTitoloPsicologo">Psicologo</div>
     <div id="TestoMainPsicologo">
-        <div id="TestoPsicologoITI">Testo Psicologo</div>
-        <div id="TestoPsicologoIPSIA">Testo Psicologo</div>
+        <div id="TestoPsicologoITI">Lunedì: 08:10 - 09:10 <br>Aula 4 sede Principale</div>
+        <div id="TestoPsicologoIPSIA">Giovedì: 08:10 - 12:10 <br>Segreteria sede IPSIA</div>
     </div>
-    <div id="PrenotazionePsicologo">Prenotazione Psicologo</div>
+    <div id="PrenotazionePsicologo">Prenota incontro a: <br><u>puntodivista@iticopernico.it</u></div>
 </div>
 <div id="BoxInfoPaninaro">
-    <div id="TestoTitoloPaninaro">Paninaro</div>
+    <div id="TestoTitoloPaninaro">Lista Merende:</div>
     <table id="TabellaPaninaro">
         <!--Caricato da JS-->
 
@@ -43,7 +43,7 @@
         </tr>
         <tr>
             <td class="nomePaninaro">. Margherita</td>
-            <td class="prezzoPaninaro">€ 4,00</td>
+            <td class="prezzoPaninaro">€4,00</td>
         </tr>
     </table>
     <div id="OrarioPaninaro">Dalle 9:00 alle 14:00</div>
@@ -251,5 +251,223 @@
     #TempetaturaMeteo {
         width: 316px;
         height: 60px;
+    }
+
+    #VentoMeteo {
+        width: 316px;
+        height: 60px;
+    }
+
+    #UmiditaMeteo {
+        width: 316px;
+        height: 60px;
+    }
+
+    #BoxInfoPsicologo {
+        width: 520px;
+        height: 373px;
+        flex-shrink: 0;
+        border-radius: 15px;
+        border: 2.5px solid #FFF;
+        background: #0E284B;
+        position: absolute;
+        top: 361px;
+        left: 657px;
+    }
+
+    #TestoTitoloPsicologo {
+        display: flex;
+        width: 516px;
+        height: 49.894px;
+        flex-direction: column;
+        flex-shrink: 0;
+        justify-content: center;
+        color: #EEBC0E;
+        text-align: center;
+        font-family: "Rubik One";
+        font-size: 45px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 0.5px;
+        position: absolute;
+        top: 20px;
+        left: 3px;
+    }
+
+    #TestoMainPsicologo {
+        display: flex;
+        width: 516px;
+        flex-direction: column;
+        flex-shrink: 0;
+        justify-content: center;
+        color: #E4E4E4;
+        text-align: center;
+        font-family: Outfit;
+        font-size: 44px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        position: absolute;
+        top: 68px;
+        left: 3px;
+    }
+
+    #TestoPsicologoITI {
+        display: flex;
+        width: 512px;
+        height: 120px;
+        flex-direction: column;
+        flex-shrink: 0;
+        justify-content: center;
+        color: #E4E4E4;
+        text-align: center;
+        font-family: Outfit;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    #TestoPsicologoIPSIA {
+        display: flex;
+        width: 516px;
+        height: 120px;
+        flex-direction: column;
+        flex-shrink: 0;
+        justify-content: center;
+        color: #E4E4E4;
+        text-align: center;
+        font-family: Outfit;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    #PrenotazionePsicologo {
+        display: flex;
+        width: 516px;
+        height: 60px;
+        flex-direction: column;
+        flex-shrink: 0;
+        justify-content: center;
+        color: #E4E4E4;
+        text-align: center;
+        font-family: Outfit;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        position: absolute;
+        top: 293px;
+        left: 3px;
+    }
+
+    #BoxInfoPaninaro {
+        width: 650px;
+        height: 696px;
+        flex-shrink: 0;
+        border-radius: 15px;
+        border: 1px solid #FFF;
+        background: #004083;
+        position: absolute;
+        top: 41px;
+        left: 1253px;
+    }
+
+    #TestoTitoloPaninaro {
+        display: flex;
+        width: 646px;
+        height: 49.894px;
+        flex-direction: column;
+        flex-shrink: 0;
+        justify-content: center;
+        color: #FFF;
+        text-align: center;
+        font-family: "Rubik One";
+        font-size: 45px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 0.5px;
+        position: absolute;
+        top: 20px;
+        left: 3px;
+    }
+
+    #TabellaPaninaro {
+        display: flex;
+        width: 100%;
+        height: 500px;
+        flex-direction: column;
+        flex-shrink: 0;
+        color: #FFF;
+        font-family: Outfit;
+        font-size: 45px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        position: absolute;
+        top: 70px;
+    }
+
+    #TabellaPaninaro tr {
+        display: flex;
+        width: 90%;
+        justify-content: space-between;
+        margin-left: 5%;
+    }
+
+    #TabellaPaninaro tr>td:first-child {
+        border-right: 1px solid #FFF;
+        width: 75%;
+    }
+
+    #TabellaPaninaro tr>td:last-child {
+        padding-left: 30px;
+        width: 25%;
+    }
+
+    .categoriaPaninaro {
+        color: #E4E4E4;
+        font-family: Outfit;
+        font-size: 35px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    .nomePaninaro {
+        color: #E4E4E4;
+        font-family: Outfit;
+        font-size: 35px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        padding-left: 30px;
+    }
+
+    .prezzoPaninaro {
+        color: #E4E4E4;
+        font-family: Outfit;
+        font-size: 35px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        padding-left: 30px;
+        text-align: right;
+    }
+
+    #OrarioPaninaro {
+        color: #FFF500;
+        font-family: Outfit;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        position: absolute;
+        top: 630px;
+        left: 3px;
     }
 </style>
