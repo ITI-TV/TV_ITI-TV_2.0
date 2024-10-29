@@ -1,0 +1,255 @@
+<div id="BoxInfoBiblioteca">
+    <div id="TestoTitoloBiblioteca">BIBLIOTECA</div>
+    <div id="TestoMainBiblioteca">Lunedì-Venerdì:<br>10:00 - 12:00</div>
+    <div id="StatoBiblioteca" class="chiuso">--CHIUSO--</div>
+</div>
+<div id="BoxInfoSegreteria">
+    <div id="TestoTitoloSegreteria">SEGRETERIA</div>
+    <div id="TestoMainSegreteria">Dalle 08:10 alle 09:10 <br>Dalle 11:45 alle 13:10</div>
+    <div id="StatoSegreteria" class="aperto">--APERTO--</div>
+</div>
+<div id="BoxInfoMeteo">
+    <div id="TestoTitoloMeteo">Meteo</div>
+    <table id="TabellaMeteo">
+        <tr>
+            <td id="IMGMeteo" rowspan="3">IMG</td>
+            <td id="TempetaturaMeteo">Temp</td>
+        </tr>
+        <tr>
+            <td id="VentoMeteo">Vento</td>
+        </tr>
+        <tr>
+            <td id="UmiditaMeteo">Umidità</td>
+        </tr>
+    </table>
+</div>
+<div id="BoxInfoPsicologo">
+    <div id="TestoTitoloPsicologo">Psicologo</div>
+    <div id="TestoMainPsicologo">
+        <div id="TestoPsicologoITI">Testo Psicologo</div>
+        <div id="TestoPsicologoIPSIA">Testo Psicologo</div>
+    </div>
+    <div id="PrenotazionePsicologo">Prenotazione Psicologo</div>
+</div>
+<div id="BoxInfoPaninaro">
+    <div id="TestoTitoloPaninaro">Paninaro</div>
+    <table id="TabellaPaninaro">
+        <!--Caricato da JS-->
+
+        <!--test-->
+        <tr>
+            <td class="categoriaPaninaro">Pizze:</td>
+            <td class="vuotoPaninaro"></td>
+        </tr>
+        <tr>
+            <td class="nomePaninaro">. Margherita</td>
+            <td class="prezzoPaninaro">€ 4,00</td>
+        </tr>
+    </table>
+    <div id="OrarioPaninaro">Dalle 9:00 alle 14:00</div>
+</div>
+
+<style>
+    #main {
+        background: #00152D;
+    }
+
+    #BoxInfoBiblioteca {
+        width: 520px;
+        height: 300.172px;
+        flex-shrink: 0;
+        border-radius: 15px;
+        border: 2.5px solid #FFF;
+        background: #0E284B;
+        position: absolute;
+        top: 40px;
+        left: 60px;
+    }
+
+    #TestoTitoloBiblioteca {
+        display: flex;
+        width: 516px;
+        height: 49.894px;
+        flex-direction: column;
+        flex-shrink: 0;
+        justify-content: center;
+        color: #D80000;
+        text-align: center;
+        font-family: "Rubik One";
+        font-size: 45px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 0.5px;
+        position: absolute;
+        top: 20px;
+        left: 3px;
+    }
+
+    #TestoMainBiblioteca {
+        display: flex;
+        width: 516px;
+        height: 124.298px;
+        flex-direction: column;
+        flex-shrink: 0;
+        justify-content: center;
+        color: #E4E4E4;
+        text-align: center;
+        font-family: Outfit;
+        font-size: 45px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        position: absolute;
+        top: 70px;
+        left: 3px;
+    }
+
+    #StatoBiblioteca {
+        position: absolute;
+        top: 198px;
+        left: 20px;
+        text-align: center;
+        width: 487px;
+        height: 91.15px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        flex-shrink: 0;
+    }
+
+    #BoxInfoSegreteria {
+        width: 520px;
+        height: 351px;
+        flex-shrink: 0;
+        border-radius: 15px;
+        border: 2.5px solid #FFF;
+        background: #0E284B;
+        position: absolute;
+        top: 383px;
+        left: 60px;
+    }
+
+    #TestoTitoloSegreteria {
+        display: flex;
+        width: 516px;
+        height: 111.302px;
+        flex-direction: column;
+        flex-shrink: 0;
+        justify-content: center;
+        color: #E09819;
+        text-align: center;
+        font-family: "Rubik One";
+        font-size: 45px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    #TestoMainSegreteria {
+        color: #E4E4E4;
+        text-align: center;
+        font-family: Outfit;
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        display: flex;
+        width: 516px;
+        height: 120.031px;
+        flex-direction: column;
+        flex-shrink: 0;
+    }
+
+    #StatoSegreteria {
+        position: absolute;
+        top: 248px;
+        left: 20px;
+        text-align: center;
+        width: 487px;
+        height: 91.15px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        flex-shrink: 0;
+    }
+
+    .chiuso {
+        color: #D80000;
+        font-family: Outfit;
+        font-size: 55px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    .aperto {
+        color: #14FF00;
+        font-family: Outfit;
+        font-size: 55px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    #BoxInfoMeteo {
+        width: 520px;
+        height: 287px;
+        flex-shrink: 0;
+        border-radius: 15px;
+        border: 2.5px solid #FFF;
+        background: #0E284B;
+        position: absolute;
+        top: 40px;
+        left: 655px;
+    }
+
+    #TestoTitoloMeteo {
+        display: flex;
+        width: 516px;
+        height: 49.894px;
+        flex-direction: column;
+        flex-shrink: 0;
+        justify-content: center;
+        color: #E09819;
+        text-align: center;
+        font-family: "Rubik One";
+        font-size: 45px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 0.5px;
+        position: absolute;
+        top: 20px;
+        left: 3px;
+    }
+
+    #TabellaMeteo {
+        display: flex;
+        width: 516px;
+        height: 200px;
+        flex-direction: column;
+        flex-shrink: 0;
+        justify-content: center;
+        color: #E4E4E4;
+        text-align: center;
+        font-family: Outfit;
+        font-size: 45px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        position: absolute;
+        top: 70px;
+        left: 3px;
+    }
+
+    #IMGMeteo {
+        width: 200px;
+        height: 200px;
+    }
+
+    #TempetaturaMeteo {
+        width: 316px;
+        height: 60px;
+    }
+</style>

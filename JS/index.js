@@ -85,7 +85,7 @@ function loadEventiGiornalieri(periodo) {
 
 function loadInformazioniGenerali(periodo) {
     checkServer();
-    $('#main').load(`HTML/${periodo}/Informazioni%20Generali/main.html`);
+    $('#main').load(`HTML/${periodo}/InformazioniGenerali/main.html`);
 }
 
 function loadComponentiAggiuntivi(periodo) {
@@ -137,7 +137,7 @@ function getPeriodoFestivo() {
     } else if (
         (dataCorrente >= new Date(anno, 9, 20) && dataCorrente <= new Date(anno, 10, 2)) // Periodo di Halloween: dal 20 ottobre al 2 novembre
     ) {
-        return 'Halloween';
+        return 'Classico';
     } else {
         return 'Classico'; // Se non è un periodo festivo, carica il periodo Classico
     }
@@ -446,7 +446,7 @@ function loader(NumeroComunicazioni, NumeroEventiGiornalieri, NumeroComponentiAg
 
     let currentIndex = 0;
     //riparto da dove sarei dovuto essere
-    currentIndex = Math.floor((getOrario().split(':')[0] * 3600 + getOrario().split(':')[1] * 60 - oraInizio.split(':')[0] * 3600 - oraInizio.split(':')[1] * 60) / TempoDisponibilePerOgniPagina);
+    currentIndex = Math.floor((getOrario().split(':')[0] * 3600 + getOrario().split(':')[1] * 60 - oraInizio.split(':')[0] * 3600 - oraInizio.split(':')[1] * 60) / TempoDisponibilePerOgniPagina) - 1;
 
     let TestoTitolo = document.getElementById("TestoTitolo");
 
