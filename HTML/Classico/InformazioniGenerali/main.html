@@ -1,38 +1,69 @@
 <div id="BoxInfoBiblioteca">
     <div id="TestoTitoloBiblioteca">BIBLIOTECA</div>
-    <div id="TestoMainBiblioteca">Lunedì-Venerdì:<br>10:00 - 12:00</div>
-    <div id="StatoBiblioteca" class="chiuso">--CHIUSO--</div>
+    <img src="IMG/Immagini Sito/Classico/Books.png" alt="?" id="IconaBiblioteca">
+    <div id="TestoMainBiblioteca">
+        <span id="GiorniBiblioteca">Lunedì-Venerdì:</span><br>
+        <span id="OreBiblioteca">10:00 - 12:00</span>
+    </div>
+    <div id="StatoBiblioteca" class="chiuso">--ORA CHIUSO--</div>
 </div>
 <div id="BoxInfoSegreteria">
     <div id="TestoTitoloSegreteria">SEGRETERIA</div>
-    <div id="TestoMainSegreteria">Dalle 08:10 alle 09:10 <br>Dalle 11:45 alle 13:10</div>
-    <div id="StatoSegreteria" class="aperto">--APERTO--</div>
+    <img src="IMG/Immagini Sito/Classico/Office.png" alt="?" id="IconaSegreteria">
+    <div id="TestoMainSegreteria">08:10 - 09:10 <br>11:45 - 13:10</div>
+    <div id="StatoSegreteria" class="aperto">--ORA APERTO--</div>
 </div>
 <div id="BoxInfoMeteo">
     <div id="TestoTitoloMeteo">Meteo</div>
     <table id="TabellaMeteo">
         <tr>
-            <td id="IMGMeteo" rowspan="3">IMG</td>
-            <td id="TempetaturaMeteo">Temp</td>
+            <td id="IMGMeteo" rowspan="3"><img src="IMG/Immagini Sito/Classico/meteo/grandine.png" alt=""></td>
+            <td><img src="IMG/Immagini Sito/Classico/Temperature.png" alt="?" id="IconaTemperaturaMeteo"></td>
+            <td id="TempetaturaMeteo">23C</td>
         </tr>
         <tr>
-            <td id="VentoMeteo">Vento</td>
+            <td><img src="IMG/Immagini Sito/Classico/Windsock.png" alt="?" id="IconaVentoMeteo"></td>
+            <td id="VentoMeteo">10 Km/h</td>
         </tr>
         <tr>
-            <td id="UmiditaMeteo">Umidità</td>
+            <td><img src="IMG/Immagini Sito/Classico/Humidity.png" alt="?" id="IconaUmiditaMeteo"></td>
+            <td id="UmiditaMeteo">99%</td>
         </tr>
     </table>
 </div>
 <div id="BoxInfoPsicologo">
     <div id="TestoTitoloPsicologo">Psicologo</div>
+    <img src="IMG/Immagini Sito/Classico/mental-health.png" alt="?" id="IconaPsicologo">
     <div id="TestoMainPsicologo">
-        <div id="TestoPsicologoITI">Lunedì: 08:10 - 09:10 <br>Aula 4 sede Principale</div>
-        <div id="TestoPsicologoIPSIA">Giovedì: 08:10 - 12:10 <br>Segreteria sede IPSIA</div>
+        <div id="TestoPsicologoITI">
+            <table id="TabellaPsicologoITI">
+                <tr>
+                    <td rowspan="2" id="GiornoPsicologoITI">LUN</td>
+                    <td id="AulaPsicologoITI">Aula 4, sede ITI</td>
+                </tr>
+                <tr>
+                    <td id="OraPsicologoITI">08:10 - 09:10</td>
+                </tr>
+            </table>
+        </div>
+        <div id="TestoPsicologoIPSIA">
+            <table id="TabellaPsicologoIPSIA">
+                <tr>
+                    <td rowspan="2" id="GiornoPsicologoIPSIA">GIO</td>
+                    <td id="AulaPsicologoIPSIA">Segreteria, sede IPSIA</td>
+                </tr>
+                <tr>
+                    <td id="OraPsicologoIPSIA">08:10 - 12:10</td>
+                </tr>
+            </table>
+        </div>
     </div>
-    <div id="PrenotazionePsicologo">Prenota incontro a: <br><u>puntodivista@iticopernico.it</u></div>
+    <img src="IMG/Immagini Sito/Classico/letter.png" alt="?" id="IconaPsicologo2">
+    <div id="PrenotazionePsicologo"><u>puntodivista@iticopernico.it</u></div>
 </div>
 <div id="BoxInfoPaninaro">
-    <div id="TestoTitoloPaninaro">Lista Merende:</div>
+    <div id="TestoTitoloPaninaro">Lista Merende</div>
+    <img src="IMG/Immagini Sito/Classico/food-bar.png" alt="?" id="IconaPaninaro">
     <table id="TabellaPaninaro">
         <!--Caricato da JS-->
 
@@ -62,8 +93,8 @@
         border: 2.5px solid #FFF;
         background: #0E284B;
         position: absolute;
-        top: 40px;
-        left: 60px;
+        top: 26px;
+        left: 41px;
     }
 
     #TestoTitoloBiblioteca {
@@ -73,36 +104,48 @@
         flex-direction: column;
         flex-shrink: 0;
         justify-content: center;
-        color: #D80000;
+        color: #7CB342;
         text-align: center;
+        -webkit-text-stroke-color: #00152D;
+        -webkit-text-stroke-width: 1;
         font-family: "Rubik One";
-        font-size: 45px;
+        font-size: 48px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.64px;
         position: absolute;
-        top: 20px;
+        top: 21px;
         left: 3px;
     }
 
     #TestoMainBiblioteca {
         display: flex;
-        width: 516px;
-        height: 124.298px;
+        width: 372px;
+        height: 124px;
         flex-direction: column;
         flex-shrink: 0;
         justify-content: center;
-        color: #E4E4E4;
+        color: #FFF;
         text-align: center;
+        -webkit-text-stroke-color: #E5E5E5;
+        -webkit-text-stroke-width: 1;
         font-family: Outfit;
-        font-size: 45px;
+        font-size: 48px;
         font-style: normal;
         font-weight: 500;
         line-height: normal;
         position: absolute;
-        top: 70px;
-        left: 3px;
+        top: 89px;
+        left: 147px;
+    }
+
+    #IconaBiblioteca {
+        width: 133px;
+        height: 130px;
+        position: absolute;
+        top: 88px;
+        left: 14px;
     }
 
     #StatoBiblioteca {
@@ -126,8 +169,8 @@
         border: 2.5px solid #FFF;
         background: #0E284B;
         position: absolute;
-        top: 383px;
-        left: 60px;
+        top: 369px;
+        left: 38px;
     }
 
     #TestoTitoloSegreteria {
@@ -135,30 +178,44 @@
         width: 516px;
         height: 111.302px;
         flex-direction: column;
-        flex-shrink: 0;
         justify-content: center;
-        color: #E09819;
+        flex-shrink: 0;
+        color: #F57C00;
         text-align: center;
+        -webkit-text-stroke-width: 1;
+        -webkit-text-stroke-color: #00152D;
         font-family: "Rubik One";
-        font-size: 45px;
+        font-size: 48px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
+        letter-spacing: 1.28px;
     }
 
     #TestoMainSegreteria {
-        color: #E4E4E4;
+        display: flex;
+        width: 340px;
+        height: 120px;
+        flex-direction: column;
+        justify-content: center;
+        flex-shrink: 0;
+        color: #FFF;
         text-align: center;
+        -webkit-text-stroke-width: 1;
+        -webkit-text-stroke-color: #E5E5E5;
         font-family: Outfit;
         font-size: 50px;
         font-style: normal;
         font-weight: 500;
         line-height: normal;
-        display: flex;
-        width: 516px;
-        height: 120.031px;
-        flex-direction: column;
-        flex-shrink: 0;
+    }
+
+    #IconaSegreteria {
+        width: 133px;
+        height: 130px;
+        position: absolute;
+        top: 112px;
+        left: 342px;
     }
 
     #StatoSegreteria {
@@ -175,7 +232,16 @@
     }
 
     .chiuso {
+        display: flex;
+        width: 516px;
+        height: 75.63px;
+        flex-direction: column;
+        justify-content: center;
+        flex-shrink: 0;
         color: #D80000;
+        text-align: center;
+        -webkit-text-stroke-width: 1;
+        -webkit-text-stroke-color: #0E284B;
         font-family: Outfit;
         font-size: 55px;
         font-style: normal;
@@ -184,7 +250,16 @@
     }
 
     .aperto {
+        display: flex;
+        width: 516px;
+        height: 75.63px;
+        flex-direction: column;
+        justify-content: center;
+        flex-shrink: 0;
         color: #14FF00;
+        text-align: center;
+        -webkit-text-stroke-width: 1;
+        -webkit-text-stroke-color: #0E284B;
         font-family: Outfit;
         font-size: 55px;
         font-style: normal;
@@ -194,73 +269,93 @@
 
     #BoxInfoMeteo {
         width: 520px;
-        height: 287px;
+        height: 287.377px;
         flex-shrink: 0;
         border-radius: 15px;
         border: 2.5px solid #FFF;
         background: #0E284B;
         position: absolute;
-        top: 40px;
-        left: 655px;
+        top: 25px;
+        left: 1359px;
     }
 
     #TestoTitoloMeteo {
         display: flex;
         width: 516px;
-        height: 49.894px;
+        height: 47.768px;
         flex-direction: column;
-        flex-shrink: 0;
         justify-content: center;
-        color: #E09819;
+        flex-shrink: 0;
+        color: #DDEC14;
         text-align: center;
+        -webkit-text-stroke-width: 1;
+        -webkit-text-stroke-color: #00152D;
         font-family: "Rubik One";
-        font-size: 45px;
+        font-size: 48px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.64px;
         position: absolute;
         top: 20px;
         left: 3px;
     }
 
+    #IconaTemperaturaMeteo {
+        width: 60px;
+        height: 60px;
+    }
+
+    #IconaVentoMeteo {
+        width: 60px;
+        height: 60px;
+    }
+
+    #IconaUmiditaMeteo {
+        width: 60px;
+        height: 60px;
+    }
+
+    /*larghezza dell'ultima colonna della tabella il più piccolo possibile*/
+    #TabellaMeteo tr>td:last-child {
+        width: 30%;
+    }
+
+    /*larchezza della seconda colonna della tabella il più piccolo possibile*/
+    #TabellaMeteo tr>td:nth-child(2) {
+        width: 10%;
+    }
+
+    /*l'immagine della prima colonna della tabella il più grande possibile mantenendo le proporzioni*/
+    #TabellaMeteo tr>td:first-child>img {
+        width: 90%;
+        height: auto;
+        max-height: 200px;
+        max-width: 200px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+
     #TabellaMeteo {
-        display: flex;
-        width: 516px;
-        height: 200px;
-        flex-direction: column;
-        flex-shrink: 0;
-        justify-content: center;
         color: #E4E4E4;
-        text-align: center;
+        text-align: left;
+        -webkit-text-stroke-width: 1;
+        -webkit-text-stroke-color: #FFF;
         font-family: Outfit;
-        font-size: 45px;
+        font-size: 38px;
         font-style: normal;
         font-weight: 500;
         line-height: normal;
         position: absolute;
         top: 70px;
         left: 3px;
+        width: 100%;
+        height: 200px;
     }
 
     #IMGMeteo {
         width: 200px;
         height: 200px;
-    }
-
-    #TempetaturaMeteo {
-        width: 316px;
-        height: 60px;
-    }
-
-    #VentoMeteo {
-        width: 316px;
-        height: 60px;
-    }
-
-    #UmiditaMeteo {
-        width: 316px;
-        height: 60px;
     }
 
     #BoxInfoPsicologo {
@@ -271,25 +366,27 @@
         border: 2.5px solid #FFF;
         background: #0E284B;
         position: absolute;
-        top: 361px;
-        left: 657px;
+        top: 346px;
+        left: 1361px;
     }
 
     #TestoTitoloPsicologo {
         display: flex;
         width: 516px;
-        height: 49.894px;
+        height: 62px;
         flex-direction: column;
-        flex-shrink: 0;
         justify-content: center;
-        color: #EEBC0E;
+        flex-shrink: 0;
+        color: #FB4BD8;
         text-align: center;
+        -webkit-text-stroke-width: 1;
+        -webkit-text-stroke-color: #00152D;
         font-family: "Rubik One";
-        font-size: 45px;
+        font-size: 48px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.64px;
         position: absolute;
         top: 20px;
         left: 3px;
@@ -297,71 +394,115 @@
 
     #TestoMainPsicologo {
         display: flex;
-        width: 516px;
+        width: 246px;
+        height: 74px;
         flex-direction: column;
-        flex-shrink: 0;
         justify-content: center;
+        flex-shrink: 0;
         color: #E4E4E4;
         text-align: center;
+        -webkit-text-stroke-width: 1;
+        -webkit-text-stroke-color: #E5E5E5;
         font-family: Outfit;
-        font-size: 44px;
+        font-size: 25px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        position: absolute;
-        top: 68px;
-        left: 3px;
     }
 
     #TestoPsicologoITI {
-        display: flex;
-        width: 512px;
-        height: 120px;
-        flex-direction: column;
+        width: 357px;
+        height: 99px;
         flex-shrink: 0;
-        justify-content: center;
-        color: #E4E4E4;
-        text-align: center;
-        font-family: Outfit;
-        font-size: 40px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
+        border-radius: 11px;
+        border: 4px solid rgba(251, 75, 216, 0.56);
+        background: rgba(217, 217, 217, 0.00);
+        position: absolute;
+        top: 94px;
+        left: 32px;
     }
 
     #TestoPsicologoIPSIA {
-        display: flex;
-        width: 516px;
-        height: 120px;
-        flex-direction: column;
+        width: 357px;
+        height: 99px;
         flex-shrink: 0;
-        justify-content: center;
-        color: #E4E4E4;
-        text-align: center;
+        border-radius: 11px;
+        border: 4px solid rgba(251, 75, 216, 0.56);
+        background: rgba(217, 217, 217, 0.00);
+        position: absolute;
+        top: 206px;
+        left: 32px;
+    }
+
+    #GiornoPsicologoITI {
+        color: #FFF;
         font-family: Outfit;
-        font-size: 40px;
+        font-size: 30px;
         font-style: normal;
-        font-weight: 400;
+        font-weight: 700;
         line-height: normal;
+        text-align: center;
+        justify-items: center;
+        justify-content: center;
+        width: 20%;
+        padding-left: 10px;
+    }
+
+    #TabellaPsicologoITI {
+        width: 100%;
+        height: 100%;
+    }
+
+    #TabellaPsicologoIPSIA {
+        width: 100%;
+        height: 100%;
+    }
+
+    #GiornoPsicologoIPSIA {
+        color: #FFF;
+        font-family: Outfit;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-align: center;
+        justify-items: center;
+        justify-content: center;
+        width: 20%;
+        padding-left: 10px;
+    }
+
+    #IconaPsicologo {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 145px;
+        right: 0px;
+    }
+
+    #IconaPsicologo2 {
+        width: 48px;
+        height: 46px;
+        position: absolute;
+        top: 324px;
+        left: 35px;
     }
 
     #PrenotazionePsicologo {
-        display: flex;
-        width: 516px;
-        height: 60px;
-        flex-direction: column;
-        flex-shrink: 0;
-        justify-content: center;
-        color: #E4E4E4;
+        width: 411px;
+        color: #FFF;
         text-align: center;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        -webkit-text-stroke-width: 1;
+        -webkit-text-stroke-color: #000;
         font-family: Outfit;
-        font-size: 25px;
+        font-size: 32px;
         font-style: normal;
         font-weight: 500;
         line-height: normal;
         position: absolute;
-        top: 293px;
-        left: 3px;
+        top: 323px;
+        left: 83px;
     }
 
     #BoxInfoPaninaro {
@@ -369,31 +510,33 @@
         height: 696px;
         flex-shrink: 0;
         border-radius: 15px;
-        border: 1px solid #FFF;
+        border: 2.5px solid #FFF;
         background: #004083;
         position: absolute;
-        top: 41px;
-        left: 1253px;
+        top: 26px;
+        left: 635px;
     }
 
     #TestoTitoloPaninaro {
-        display: flex;
-        width: 646px;
-        height: 49.894px;
-        flex-direction: column;
-        flex-shrink: 0;
-        justify-content: center;
-        color: #FFF;
+        width: 462px;
+        color: #F44336;
         text-align: center;
         font-family: "Rubik One";
-        font-size: 45px;
+        font-size: 40px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        letter-spacing: 0.5px;
         position: absolute;
-        top: 20px;
-        left: 3px;
+        top: 21px;
+        left: 154px;
+    }
+
+    #IconaPaninaro {
+        width: 96px;
+        height: 96px;
+        position: absolute;
+        top: 1px;
+        left: px;
     }
 
     #TabellaPaninaro {
@@ -404,12 +547,12 @@
         flex-shrink: 0;
         color: #FFF;
         font-family: Outfit;
-        font-size: 45px;
+        font-size: 26px;
         font-style: normal;
-        font-weight: 500;
+        font-weight: 700;
         line-height: normal;
         position: absolute;
-        top: 70px;
+        top: 80px;
     }
 
     #TabellaPaninaro tr {
@@ -421,53 +564,53 @@
 
     #TabellaPaninaro tr>td:first-child {
         border-right: 1px solid #FFF;
-        width: 75%;
+        width: 85%;
     }
 
     #TabellaPaninaro tr>td:last-child {
         padding-left: 30px;
-        width: 25%;
+        width: 15%;
     }
 
     .categoriaPaninaro {
-        color: #E4E4E4;
+        color: #FFF;
         font-family: Outfit;
-        font-size: 35px;
+        font-size: 26px;
         font-style: normal;
         font-weight: 700;
         line-height: normal;
     }
 
     .nomePaninaro {
-        color: #E4E4E4;
+        color: #FFF;
         font-family: Outfit;
-        font-size: 35px;
+        font-size: 26px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        padding-left: 30px;
+        padding-left: 50px;
     }
 
     .prezzoPaninaro {
-        color: #E4E4E4;
+        color: #FFF;
         font-family: Outfit;
-        font-size: 35px;
+        font-size: 26px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        padding-left: 30px;
-        text-align: right;
     }
 
     #OrarioPaninaro {
-        color: #FFF500;
+        color: #FFAC00;
+        -webkit-text-stroke-width: 1;
+        -webkit-text-stroke-color: #F44336;
         font-family: Outfit;
         font-size: 40px;
         font-style: normal;
-        font-weight: 700;
+        font-weight: 500;
         line-height: normal;
         position: absolute;
-        top: 630px;
-        left: 3px;
+        top: 622px;
+        left: 149px;
     }
 </style>
