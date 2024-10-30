@@ -235,11 +235,10 @@ body {
   color: #fff;
   text-align: center;
   font-family: "FiraMono", sans-serif;
-  font-size: 48px;
+  font-size: 80px;
   font-style: normal;
-  font-weight: 735;
   position: absolute;
-  top: 50px;
+  top: 30px;
   left: 0;
 }
 
