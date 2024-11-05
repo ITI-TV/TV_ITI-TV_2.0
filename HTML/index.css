@@ -579,7 +579,6 @@ body {
 }
 
 #TestoComponentiAggiuntivi {
-    display: flex;
     width: 1036px;
     height: 496px;
     flex-direction: column;
