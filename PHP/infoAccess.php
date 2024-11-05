@@ -1,6 +1,6 @@
 <?php
-$serverConn="192.168.1.147";
-$usernameConn="ititv";
-$passwordConn="ititv";
-$dbnameConn="ititv";
+$serverConn="IP DB";
+$usernameConn="USERNAME DB";
+$passwordConn="PASS DB";
+$dbnameConn="NOME DB";
 
